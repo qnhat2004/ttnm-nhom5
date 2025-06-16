@@ -297,42 +297,56 @@
 
             <!-- Modal thành công -->
             <div id="successModal" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-            <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm text-center">
+            <div class="relative bg-white rounded-lg shadow-lg p-8 max-w-sm text-center">
+                
+                <!-- Nút Close -->
+                <button type="button" onclick="closeModal('successModal')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-2xl font-bold">
+                &times;
+                </button>
+
                 <!-- Ảnh thay cho icon -->
                 <div class="flex justify-center mb-4">
-                    <img src="../public/succes.png" alt="Thành công" class="w-16 h-16">
+                <img src="../public/succes.png" alt="Thành công" class="w-16 h-16">
                 </div>
-                
-                <!-- Tiêu đề màu xanh -->
+
+                <!-- Tiêu đề -->
                 <h2 class="text-xl font-bold mb-2 text-green-600">Đặt sân thành công!</h2>
-                
                 <p class="text-green-600 mb-4">Cảm ơn bạn đã đặt sân. Hẹn gặp lại trên sân bóng!</p>
-                
+
+                <!-- Nút OK -->
                 <button onclick="closeModal('successModal')" class="mt-2 px-4 py-2 bg-primary text-white rounded hover:bg-green-600">
-                    OK
+                OK
                 </button>
             </div>
-        </div>
+            </div>
+
 
 
             <!-- Modal thất bại -->
             <div id="errorModal" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-                <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm text-center">
-                    <!-- Icon lỗi dạng ảnh -->
-                    <div class="flex justify-center mb-4">
-                        <img src="../public/error.png" alt="Thất bại" class="w-16 h-16">
-                    </div>
+            <div class="relative bg-white rounded-lg shadow-lg p-8 max-w-sm text-center">
+                
+                <!-- Nút Close -->
+                <button type="button" onclick="closeModal('errorModal')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-2xl font-bold">
+                &times;
+                </button>
 
-                    <!-- Tiêu đề màu đỏ -->
-                    <h2 class="text-xl font-bold mb-2 text-red-600">Đặt sân thất bại</h2>
-
-                    <p class="text-red-600 mb-4">Sân đã có người đặt.</p>
-
-                    <button onclick="closeModal('errorModal')" class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
-                        OK
-                    </button>
+                <!-- Ảnh lỗi -->
+                <div class="flex justify-center mb-4">
+                <img src="../public/error.png" alt="Thất bại" class="w-16 h-16">
                 </div>
+
+                <!-- Tiêu đề -->
+                <h2 class="text-xl font-bold mb-2 text-red-600">Đặt sân thất bại</h2>
+                <p class="text-red-600 mb-4">Sân đã có người đặt.</p>
+
+                <!-- Nút OK -->
+                <button onclick="closeModal('errorModal')" class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
+                OK
+                </button>
             </div>
+            </div>
+
 
 
         </form>
