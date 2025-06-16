@@ -1,0 +1,17 @@
+:where([class^="ri-"])::before {
+  content: "\f3c2";
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.bg-hero {
+  background-image: url('https://readdy.ai/api/search-image?query=A%20modern%20football%20field%20with%20blue%20lighting%2C%20professional%20sports%20facility%2C%20clean%20and%20well-maintained%2C%20evening%20atmosphere%20with%20stadium%20lights%2C%20high-quality%20turf%2C%20blue%20tint%20overlay%2C%20perfect%20for%20sports%20events%2C%20professional%20setting&width=1600&height=400&seq=12345&orientation=landscape');
+  background-size: cover;
+  background-position: center;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+}
