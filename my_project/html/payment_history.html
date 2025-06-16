@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lịch sử thanh toán</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm">
+      <div class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-12">
+            <div class="text-primary font-bold text-2xl">
+              <span class="text-[#1e3a8a] font-bold tracking-wider">BFP</span>
+              <div class="text-xs text-gray-500 -mt-1">QUẢN LÝ ĐẶT SÂN BFP</div>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+              <a href="#" class="text-gray-600 hover:text-primary">Home</a>
+              <a href="#" class="text-gray-600 hover:text-primary">Đặt sân</a>
+              <a href="#" class="text-primary font-medium">Thanh toán</a>
+              <a href="#" class="text-gray-600 hover:text-primary">Quản lý khách hàng</a>
+              <a href="#" class="text-gray-600 hover:text-primary">Quản lý sân</a>
+              <a href="#" class="text-gray-600 hover:text-primary">Quản lý tài khoản</a>
+            </nav>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="text-gray-700">Vũ Quang Nhật</span>
+            <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+              <i class="ri-user-line text-gray-600"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <div class="bg-hero relative">
+      <div class="absolute inset-0 bg-primary bg-opacity-60"></div>
+      <div class="container mx-auto px-4 py-16 relative">
+        <div class="text-center">
+          <h1 class="text-3xl font-bold text-white mb-2">Lịch sử thanh toán</h1>
+        </div>
+      </div>
+    </div>
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+      <div class="bg-white rounded-lg shadow-sm p-6">
+        <div class="flex justify-between mb-6">
+          <a href="html/index.html" class="flex items-center text-primary hover:text-primary/80">
+            <i class="ri-arrow-left-line mr-1"></i>
+            <span>Quay lại danh sách sân đã đặt</span>
+          </a>
+        </div>
+        <!-- Filter Section -->
+        <div class="bg-gray-50 p-4 rounded-lg mb-6">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="flex flex-col">
+              <label class="text-sm font-medium text-gray-700 mb-1">Từ ngày</label>
+              <input type="date" class="date-input border border-gray-300 rounded-button px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" value="2025-06-01" />
+            </div>
+            <div class="flex flex-col">
+              <label class="text-sm font-medium text-gray-700 mb-1">Đến ngày</label>
+              <input type="date" class="date-input border border-gray-300 rounded-button px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" value="2025-06-16" />
+            </div>
+            <div class="flex flex-col">
+              <label class="text-sm font-medium text-gray-700 mb-1">Phương thức thanh toán</label>
+              <div class="relative">
+                <select class="appearance-none border border-gray-300 rounded-button px-3 py-2 text-sm w-full focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary pr-8">
+                  <option>Tất cả</option>
+                  <option>Online</option>
+                  <option>Offline</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                  <i class="ri-arrow-down-s-line text-gray-400"></i>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <label class="text-sm font-medium text-gray-700 mb-1">Tìm kiếm</label>
+              <div class="relative">
+                <input type="text" placeholder="Tìm theo tên sân" class="border border-gray-300 rounded-button pl-9 pr-3 py-2 text-sm w-full focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <i class="ri-search-line text-gray-400"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-end mt-4">
+            <button class="flex items-center bg-primary text-white px-4 py-2 rounded-button text-sm font-medium whitespace-nowrap">
+              <i class="ri-file-download-line mr-2"></i>
+              Xuất báo cáo
+            </button>
+          </div>
+        </div>
+        <!-- Payment History Table -->
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tên sân</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thời gian đặt</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thời gian thanh toán</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Số tiền</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phương thức</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Trạng thái</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Chi tiết</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Sân bóng La Thành</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">15/06/2025 18:00</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">15/06/2025 17:30</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">300.000 VNĐ</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <div class="flex items-center">
+                    <i class="ri-bank-card-line text-blue-500 mr-2"></i>
+                    <span>Online (MoMo)</span>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Hoàn thành</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  <button class="text-primary hover:text-primary/80">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Sân bóng Mỹ Đình</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">14/06/2025 20:00</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">14/06/2025 19:45</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">250.000 VNĐ</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <div class="flex items-center">
+                    <i class="ri-money-dollar-circle-line text-green-500 mr-2"></i>
+                    <span>Offline (Tại sân)</span>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Hoàn thành</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  <button class="text-primary hover:text-primary/80">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Sân bóng Lê Thành</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13/06/2025 19:30</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13/06/2025 18:15</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">300.000 VNĐ</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <div class="flex items-center">
+                    <i class="ri-bank-card-line text-blue-500 mr-2"></i>
+                    <span>Online (VNPay)</span>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Hoàn thành</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  <button class="text-primary hover:text-primary/80">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Sân bóng Hà Đông</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">12/06/2025 17:00</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">12/06/2025 16:30</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">350.000 VNĐ</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <div class="flex items-center">
+                    <i class="ri-bank-card-line text-blue-500 mr-2"></i>
+                    <span>Online (MoMo)</span>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Hoàn thành</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  <button class="text-primary hover:text-primary/80">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Sân bóng Cầu Giấy</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10/06/2025 18:30</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10/06/2025 17:45</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">280.000 VNĐ</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <div class="flex items-center">
+                    <i class="ri-money-dollar-circle-line text-green-500 mr-2"></i>
+                    <span>Offline (Tại sân)</span>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Hoàn thành</span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  <button class="text-primary hover:text-primary/80">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Pagination -->
+        <div class="flex items-center justify-between mt-6">
+          <div class="text-sm text-gray-700">
+            Hiển thị <span class="font-medium">1</span> đến <span class="font-medium">5</span> của <span class="font-medium">12</span> giao dịch
+          </div>
+          <nav class="inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+            <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+              <span class="sr-only">Previous</span>
+              <i class="ri-arrow-left-s-line"></i>
+            </a>
+            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-primary text-sm font-medium text-white hover:bg-primary/90">1</a>
+            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">2</a>
+            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">3</a>
+            <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+              <span class="sr-only">Next</span>
+              <i class="ri-arrow-right-s-line"></i>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!-- Payment Detail Modal -->
+    <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+      <div class="bg-white rounded-lg p-6 w-[480px] max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-semibold">Chi tiết giao dịch</h3>
+          <button id="closeDetailModal" class="text-gray-400 hover:text-gray-500">
+            <i class="ri-close-line text-xl"></i>
+          </button>
+        </div>
+        <div class="space-y-4 mb-6">
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <div class="flex justify-between mb-2">
+              <span class="text-gray-600">Mã giao dịch:</span>
+              <span id="transactionId" class="font-medium">TXN25061500123</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Trạng thái:</span>
+              <span class="px-2 py-0.5 text-xs font-medium bg-green-100 text-green-800 rounded-full">Hoàn thành</span>
+            </div>
+          </div>
+          <div class="border-b pb-3">
+            <h4 class="font-medium mb-2">Thông tin sân</h4>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <div>
+                <p class="text-gray-600">Tên sân:</p>
+                <p id="fieldName" class="font-medium">Sân bóng La Thành</p>
+              </div>
+              <div>
+                <p class="text-gray-600">Loại sân:</p>
+                <p id="fieldType" class="font-medium">7vs7</p>
+              </div>
+              <div>
+                <p class="text-gray-600">Địa chỉ:</p>
+                <p id="fieldAddress" class="font-medium">Quận Thanh Xuân, Hà Nội</p>
+              </div>
+              <div>
+                <p class="text-gray-600">Số sân:</p>
+                <p id="fieldNumber" class="font-medium">1</p>
+              </div>
+            </div>
+          </div>
+          <div class="border-b pb-3">
+            <h4 class="font-medium mb-2">Thông tin đặt sân</h4>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <div>
+                <p class="text-gray-600">Thời gian đặt:</p>
+                <p id="bookingTime" class="font-medium">15/06/2025 18:00</p>
+              </div>
+              <div>
+                <p class="text-gray-600">Người đặt:</p>
+                <p id="bookerName" class="font-medium">Nguyễn Văn Minh</p>
+              </div>
+              <div>
+                <p class="text-gray-600">Số điện thoại:</p>
+                <p id="bookerPhone" class="font-medium">0912345678</p>
+              </div>
+            </div>
+          </div>
+          <div class="border-b pb-3">
+            <h4 class="font-medium mb-2">Thông tin thanh toán</h4>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <div>
+                <p class="text-gray-600">Thời gian thanh toán:</p>
+                <p id="paymentTime" class="font-medium">15/06/2025 17:30</p>
+              </div>
+              <div>
+                <p class="text-gray-600">Phương thức:</p>
+                <p id="paymentMethod" class="font-medium flex items-center">
+                  <i class="ri-bank-card-line text-blue-500 mr-1"></i>
+                  Online (MoMo)
+                </p>
+              </div>
+              <div>
+                <p class="text-gray-600">Số tiền:</p>
+                <p id="paymentAmount" class="font-medium text-primary">300.000 VNĐ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-end">
+          <button id="printReceipt" class="flex items-center bg-primary text-white px-4 py-2 rounded-button text-sm font-medium whitespace-nowrap">
+            <i class="ri-printer-line mr-2"></i>
+            In hóa đơn
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="../js/payment_history.js"></script>
+  </body>
+</html>
