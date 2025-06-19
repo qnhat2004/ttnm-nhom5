@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý sân bóng</title>
+    <link rel="stylesheet" href="../css/quan_ly_san_bong.css" />
+    <link rel="stylesheet" href="../css/field-manager.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <script src="../js/header.js" defer></script>
+    <script src="../js/quan_ly_san_bong.js" defer></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header__left">
+        <img src="../public/logo.png" alt="BFP Logo" class="header__logo">
+      </div>
+      <nav class="header__nav">
+        <a href="home.html" class="header__nav-link">Trang chủ</a>
+        <a href="#" class="header__nav-link">Đặt sân</a>
+        <a href="#" class="header__nav-link">Thanh toán</a>
+        <a href="#" class="header__nav-link">Quản lý khách hàng</a>
+        <a href="quan_ly_san_bong.html" class="header__nav-link header__nav-link--active">Quản lý sân</a>
+        <a href="#" class="header__nav-link">Quản lý tài khoản</a>
+        <span class="header__user">Vũ Quang Nhật <span class="header__user-icon">&#9679;</span></span>
+      </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="home.html">Trang chủ</a> &gt; <span>Quản lý sân</span>
+    </div>
+
+    <main class="field-manager">
+      <!-- Sidebar filter -->
+      <aside class="field-filter">
+        <div class="field-filter__title"><span class="field-filter__icon">&#9776;</span> Lọc theo:</div>
+        <div class="field-filter__group">
+          <div class="field-filter__label">Khoảng cách</div>
+          <label><input type="radio" name="distance"> Dưới 1km</label>
+          <label><input type="radio" name="distance"> Dưới 5km</label>
+          <label><input type="radio" name="distance"> Dưới 10km</label>
+          <label><input type="radio" name="distance"> Gần nhất</label>
+        </div>
+        <div class="field-filter__group">
+          <div class="field-filter__label">Tiện ích</div>
+          <label><input type="checkbox" name="tienich"> Có mái che</label>
+          <label><input type="checkbox" name="tienich"> Có bãi gửi xe</label>
+          <label><input type="checkbox" name="tienich"> Ghế ngồi</label>
+          <label><input type="checkbox" name="tienich"> Quầy nước</label>
+          <label><input type="checkbox" name="tienich"> Cho thuê áo tập</label>
+          <label><input type="checkbox" name="tienich"> Cho thuê giày</label>
+          <label><input type="checkbox" name="tienich"> Cho thuê dụng cụ tập</label>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <section class="field-content">
+        <div class="field-content__top">
+          <button class="field-content__add-btn" onclick="window.location.href='them_san_bong.html'">+ Thêm sân bóng</button>
+          <div class="field-content__search">
+            <input type="text" placeholder="Tìm kiếm sân bóng...">
+          </div>
+        </div>
+        <h2 class="field-content__title">Danh sách sân bóng</h2>
+        <div class="field-list">
+          <!-- 12 cards -->
+          <a href="chi_tiet_san.html" class="field-card-link">
+            <div class="field-card">
+              <img src="../public/football_field.png" alt="Sân bóng" class="field-card__img">
+              <div class="field-card__body">
+                <div class="field-card__time">Mở cửa: 05:00 - 22:00</div>
+                <div class="field-card__type">Loại sân: Sân bóng đá</div>
+                <div class="field-card__name"><b>Sân bóng La Thành</b></div>
+                <div class="field-card__address">Quận Thanh Xuân, Hà Nội</div>
+                <div class="field-card__rating">0 lượt đánh giá</div>
+              </div>
+            </div>
+          </a>
+          <!-- repeat 11 times -->
+          <a href="chi_tiet_san.html" class="field-card-link">
+            <div class="field-card">
+              <img src="../public/football_field.png" alt="Sân bóng" class="field-card__img">
+              <div class="field-card__body">
+                <div class="field-card__time">Mở cửa: 05:00 - 22:00</div>
+                <div class="field-card__type">Loại sân: Sân bóng đá</div>
+                <div class="field-card__name"><b>Sân bóng La Thành</b></div>
+                <div class="field-card__address">Quận Thanh Xuân, Hà Nội</div>
+                <div class="field-card__rating">0 lượt đánh giá</div>
+              </div>
+            </div>
+          </a>
+          <a href="chi_tiet_san.html" class="field-card-link">
+            <div class="field-card">
+              <img src="../public/football_field.png" alt="Sân bóng" class="field-card__img">
+              <div class="field-card__body">
+                <div class="field-card__time">Mở cửa: 05:00 - 22:00</div>
+                <div class="field-card__type">Loại sân: Sân bóng đá</div>
+                <div class="field-card__name"><b>Sân bóng La Thành</b></div>
+                <div class="field-card__address">Quận Thanh Xuân, Hà Nội</div>
+                <div class="field-card__rating">0 lượt đánh giá</div>
+              </div>
+            </div>
+          </a>
+          <a href="chi_tiet_san.html" class="field-card-link">
+            <div class="field-card">
+              <img src="../public/football_field.png" alt="Sân bóng" class="field-card__img">
+              <div class="field-card__body">
+                <div class="field-card__time">Mở cửa: 05:00 - 22:00</div>
+                <div class="field-card__type">Loại sân: Sân bóng đá</div>
+                <div class="field-card__name"><b>Sân bóng La Thành</b></div>
+                <div class="field-card__address">Quận Thanh Xuân, Hà Nội</div>
+                <div class="field-card__rating">0 lượt đánh giá</div>
+              </div>
+            </div>
+          </a>
+          <a href="chi_tiet_san.html" class="field-card-link">
+            <div class="field-card">
+              <img src="../public/football_field.png" alt="Sân bóng" class="field-card__img">
+              <div class="field-card__body">
+                <div class="field-card__time">Mở cửa: 05:00 - 22:00</div>
+                <div class="field-card__type">Loại sân: Sân bóng đá</div>
+                <div class="field-card__name"><b>Sân bóng La Thành</b></div>
+                <div class="field-card__address">Quận Thanh Xuân, Hà Nội</div>
+                <div class="field-card__rating">0 lượt đánh giá</div>
+              </div>
+            </div>
+          </a>
+          <a href="chi_tiet_san.html" class="field-card-link">
+            <div class="field-card">
+              <img src="../public/football_field.png" alt="Sân bóng" class="field-card__img">
+              <div class="field-card__body">
+                <div class="field-card__time">Mở cửa: 05:00 - 22:00</div>
+                <div class="field-card__type">Loại sân: Sân bóng đá</div>
+                <div class="field-card__name"><b>Sân bóng La Thành</b></div>
+                <div class="field-card__address">Quận Thanh Xuân, Hà Nội</div>
+                <div class="field-card__rating">0 lượt đánh giá</div>
+              </div>
+            </div>
+          </a>
+          <a href="chi_tiet_san.html" class="field-card-link">
+            <div class="field-card">
+              <img src="../public/football_field.png" alt="Sân bóng" class="field-card__img">
+              <div class="field-card__body">
+                <div class="field-card__time">Mở cửa: 05:00 - 22:00</div>
+                <div class="field-card__type">Loại sân: Sân bóng đá</div>
+                <div class="field-card__name"><b>Sân bóng La Thành</b></div>
+                <div class="field-card__address">Quận Thanh Xuân, Hà Nội</div>
+                <div class="field-card__rating">0 lượt đánh giá</div>
+              </div>
+            </div>
+          </a>
+          <a href="chi_tiet_san.html" class="field-card-link">
+            <div class="field-card">
+              <img src="../public/football_field.png" alt="Sân bóng" class="field-card__img">
+              <div class="field-card__body">
+                <div class="field-card__time">Mở cửa: 05:00 - 22:00</div>
+                <div class="field-card__type">Loại sân: Sân bóng đá</div>
+                <div class="field-card__name"><b>Sân bóng La Thành</b></div>
+                <div class="field-card__address">Quận Thanh Xuân, Hà Nội</div>
+                <div class="field-card__rating">0 lượt đánh giá</div>
+              </div>
+            </div>
+          </a>
+          <a href="chi_tiet_san.html" class="field-card-link">
+            <div class="field-card">
+              <img src="../public/football_field.png" alt="Sân bóng" class="field-card__img">
+              <div class="field-card__body">
+                <div class="field-card__time">Mở cửa: 05:00 - 22:00</div>
+                <div class="field-card__type">Loại sân: Sân bóng đá</div>
+                <div class="field-card__name"><b>Sân bóng La Thành</b></div>
+                <div class="field-card__address">Quận Thanh Xuân, Hà Nội</div>
+                <div class="field-card__rating">0 lượt đánh giá</div>
+              </div>
+            </div>
+          </a>
+          <a href="chi_tiet_san.html" class="field-card-link">
+            <div class="field-card">
+              <img src="../public/football_field.png" alt="Sân bóng" class="field-card__img">
+              <div class="field-card__body">
+                <div class="field-card__time">Mở cửa: 05:00 - 22:00</div>
+                <div class="field-card__type">Loại sân: Sân bóng đá</div>
+                <div class="field-card__name"><b>Sân bóng La Thành</b></div>
+                <div class="field-card__address">Quận Thanh Xuân, Hà Nội</div>
+                <div class="field-card__rating">0 lượt đánh giá</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__brand">
+          <img src="../public/logo.png" alt="BFP Logo" class="footer__logo">
+          <p class="footer__desc">BFP - Đặt sân thể thao hàng đầu Việt Nam. Đặt sân nhanh chóng, tiện lợi, uy tín và chuyên nghiệp.</p>
+        </div>
+        <div class="footer__links">
+          <h4>Liên kết nhanh</h4>
+          <ul>
+            <li><a href="home.html">Trang chủ</a></li>
+            <li><a href="#">Đặt sân</a></li>
+            <li><a href="#">Quản lý khách hàng</a></li>
+            <li><a href="quan_ly_san_bong.html">Quản lý sân</a></li>
+            <li><a href="#">Quản lý tài khoản</a></li>
+          </ul>
+        </div>
+        <div class="footer__contact">
+          <h4>Liên hệ</h4>
+          <p>Email: support@bfp.vn</p>
+          <p>Hotline: 1900 1234</p>
+          <p>Địa chỉ: Hà Nội, Việt Nam</p>
+        </div>
+      </div>
+      <div class="footer__copyright">
+        &copy; 2024 BFP. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
