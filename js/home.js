@@ -6,4 +6,3 @@ document.addEventListener('DOMContentLoaded', function() {
       window.location.href = 'chi_tiet_san.html';
     });
   });
-});
