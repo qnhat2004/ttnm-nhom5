@@ -20,7 +20,21 @@
       <a href="#" class="header__nav-link">Quản lý khách hàng</a>
       <a href="quan_ly_san_bong.html" class="header__nav-link header__nav-link--active">Quản lý sân</a>
       <a href="#" class="header__nav-link">Quản lý tài khoản</a>
-      <span class="header__user">Vũ Quang Nhật <span class="header__user-icon">&#9679;</span></span>
+      <span class="header__user">Vũ Quang Nhật 
+        <span class="header__user-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            width="24px"
+            height="24px"
+          >
+            <path
+              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+            />
+          </svg>
+        </span>
+      </span>
     </nav>
   </header>
 
@@ -37,7 +51,7 @@
       </div>
       <div class="field-add__group">
         <label for="address">Địa chỉ</label>
-        <input type="text" id="address" class="field-add__input" value="Quận Thanh Xuân, Hà Nội">
+        <input type="text" id="address" class="field-add__input" value="Thanh Xuân, Hà Nội">
       </div>
       <div class="field-add__group field-add__group--price">
         <label>Giá</label>
@@ -50,10 +64,12 @@
         </div>
       </div>
       <div class="field-add__group">
-        <label for="utilities">Tiện ích</label>
-        <div class="field-add__utilities-row">
-          <span class="field-add__icon-search">&#128269;</span>
-          <input type="text" id="utilities" class="field-add__input field-add__input--utilities" value="Trọng tài, Gửi xe, Mái che, Bãi gửi xe, Ghế ngồi, Quầy nước, Cho thuê áo tập, Cho thuê giày, Cho thuê dụng cụ tập">
+        <label>Tiện ích</label>
+        <div class="field-add__utilities">
+          <button type="button" class="field-add__add-utility-btn">+ Thêm tiện ích</button>
+          <div class="field-add__utility-tags">
+            <span class="field-add__utility-tag">Có mái che <button type="button" class="field-add__remove-tag-btn">&times;</button></span>
+          </div>
         </div>
       </div>
       <div class="field-add__group">
@@ -67,16 +83,17 @@ Không đánh nhau</textarea>
       </div>
       <div class="field-add__group">
         <label>Hình ảnh</label>
+        <div class="field-add__image-preview">
+          <img src="../public/stadium.png" alt="Preview Sân bóng La Thành">
+        </div>
         <label class="field-add__upload-btn">
           <input type="file" style="display:none">
-          <span class="field-add__upload-icon">&#8682;</span> Tải ảnh lên
+          <span class="field-add__upload-icon">&#9998;</span> Tải ảnh lên
         </label>
       </div>
       <div class="field-add__actions">
-        <button type="button" class="field-add__btn field-add__btn--cancel" id="cancelBtn">
-          <span class="field-add__btn-icon">&#10006;</span> Hủy
-        </button>
-        <button type="submit" class="field-add__btn field-add__btn--save"><span class="field-add__btn-icon">&#10010;</span> Lưu lại</button>
+        <button type="button" class="field-add__btn field-add__btn--cancel" id="cancelBtn"> - Hủy</button>
+        <button type="submit" class="field-add__btn field-add__btn--save"><span class="field-add__btn-icon">+</span> Lưu lại</button>
       </div>
     </form>
   </main>
