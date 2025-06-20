@@ -5,4 +5,4 @@ document.addEventListener('DOMContentLoaded', function() {
     card.addEventListener('click', function() {
       window.location.href = 'chi_tiet_san.html';
     });
-  });
+  })});
