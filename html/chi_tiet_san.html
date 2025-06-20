@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết sân bóng</title>
+  <link rel="stylesheet" href="../css/field-detail.css">
+  <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__left">
+      <img src="../public/logo.png" alt="BFP Logo" class="header__logo">
+    </div>
+    <nav class="header__nav">
+      <a href="home.html" class="header__nav-link">Trang chủ</a>
+      <a href="#" class="header__nav-link">Đặt sân</a>
+      <a href="#" class="header__nav-link">Thanh toán</a>
+      <a href="#" class="header__nav-link">Quản lý khách hàng</a>
+      <a href="quan_ly_san_bong.html" class="header__nav-link header__nav-link--active">Quản lý sân</a>
+      <a href="#" class="header__nav-link">Quản lý tài khoản</a>
+      <span class="header__user">Vũ Quang Nhật <span class="header__user-icon">&#9679;</span></span>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="home.html">Trang chủ</a> &gt; <a href="quan_ly_san_bong.html">Quản lý sân</a> &gt; <span>Sân bóng La Thành</span>
+  </div>
+
+  <main class="field-detail">
+    <div class="field-detail__header">
+      <div>
+        <h1 class="field-detail__name">Sân bóng La Thành</h1>
+        <div class="field-detail__meta">
+          <span class="field-detail__address"><span class="icon-location">📍</span> Quận Thanh Xuân, Hà Nội</span>
+          <span class="field-detail__star">★</span> <span>0 lượt đánh giá</span>
+          <span class="field-detail__price">Chỉ từ 300.000đ - 400.000đ / 1 tiếng</span>
+        </div>
+      </div>
+      <div class="field-detail__header-actions">
+        <button class="field-detail__edit-btn" onclick="window.location.href='sua_san_bong.html'">Cập nhật thông tin sân bóng</button>
+        <button class="field-detail__delete-btn" id="deleteBtn">Xóa sân bóng</button>
+      </div>
+    </div>
+    <div class="field-detail__image">
+      <img src="../public/football_field.png" alt="Sân bóng La Thành">
+    </div>
+
+    <div class="field-detail__section field-detail__utilities">
+      <div class="field-detail__section-title">Tiện ích</div>
+      <div class="field-detail__tags">
+        <span class="field-detail__tag">Trọng tài</span>
+        <span class="field-detail__tag">Gửi xe</span>
+        <span class="field-detail__tag">Mái che</span>
+        <span class="field-detail__tag">Bãi gửi xe</span>
+        <span class="field-detail__tag">Ghế ngồi</span>
+        <span class="field-detail__tag">Quầy nước</span>
+        <span class="field-detail__tag">Cho thuê áo tập</span>
+        <span class="field-detail__tag">Cho thuê giày</span>
+        <span class="field-detail__tag">Cho thuê dụng cụ tập</span>
+        <span class="field-detail__tag">Đặt in áo đấu</span>
+        <span class="field-detail__tag">Nước uống theo trận</span>
+        <span class="field-detail__tag">Thuê trọng tài</span>
+        <span class="field-detail__tag">Thuê huấn luyện viên</span>
+        <span class="field-detail__tag">Tổ chức giải đấu</span>
+      </div>
+    </div>
+
+    <div class="field-detail__section field-detail__desc-section">
+      <div class="field-detail__section-title">Mô tả sân</div>
+      <div class="field-detail__desc-box">
+        <div class="field-detail__desc">
+          Sân bóng La Thành là 1 trong những sân bóng có vị trí đẹp và có nhiều tiện nghi, đáp ứng đầy đủ cho anh em sân phủi có thể thỏa sức đam mê đá bóng, với giá thành siêu rẻ chỉ từ 300.000 - 400.000đ 1 tiếng, sân bóng La Thành là 1 lựa chọn hợp lý cho anh em sinh viên cũng như anh em văn phòng có 1 nơi để thư giãn sau 1 ngày học tập và làm việc vất vả.
+        </div>
+      </div>
+    </div>
+
+    <div class="field-detail__section field-detail__review-section">
+      <div class="field-detail__section-title">Đánh giá khách hàng</div>
+      <div class="field-detail__review-box">
+        <div class="field-detail__review-label">Tổng cộng</div>
+        <div class="field-detail__review-total">0 <span class="field-detail__star">★</span></div>
+        <div class="field-detail__review-bars">
+          <div class="field-detail__review-bar"><span>1</span><div class="bar"></div></div>
+          <div class="field-detail__review-bar"><span>2</span><div class="bar"></div></div>
+          <div class="field-detail__review-bar"><span>3</span><div class="bar"></div></div>
+          <div class="field-detail__review-bar"><span>4</span><div class="bar"></div></div>
+          <div class="field-detail__review-bar"><span>5</span><div class="bar"></div></div>
+        </div>
+        <div class="field-detail__review-count">0 đánh giá</div>
+      </div>
+    </div>
+
+    <div class="field-detail__section field-detail__rules-section">
+      <div class="field-detail__section-title">Nội quy</div>
+      <div class="field-detail__rules-box">
+        <ul>
+          <li>Không vứt rác bừa bãi</li>
+          <li>Không đánh nhau</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+<footer class="footer">
+    <div class="footer__container">
+      <div class="footer__brand">
+        <img src="../public/logo.png" alt="BFP Logo" class="footer__logo">
+        <p class="footer__desc">BFP - Đặt sân thể thao hàng đầu Việt Nam. Đặt sân nhanh chóng, tiện lợi, uy tín và chuyên nghiệp.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Liên kết nhanh</h4>
+        <ul>
+          <li><a href="#">Trang chủ</a></li>
+          <li><a href="#">Đặt sân</a></li>
+          <li><a href="#">Quản lý khách hàng</a></li>
+          <li><a href="#">Quản lý sân</a></li>
+          <li><a href="#">Quản lý tài khoản</a></li>
+        </ul>
+      </div>
+      <div class="footer__contact">
+        <h4>Liên hệ</h4>
+        <p>Email: support@bfp.vn</p>
+        <p>Hotline: 1900 1234</p>
+        <p>Địa chỉ: Hà Nội, Việt Nam</p>
+      </div>
+    </div>
+    <div class="footer__copyright">
+      &copy; 2024 BFP. All rights reserved.
+    </div>
+  </footer>  
+  <!-- Modal xác nhận xóa -->
+  <div class="modal-overlay" id="modalConfirm" style="display:none;">
+    <div class="modal-box">
+      <button class="modal-close" id="closeConfirm">&times;</button>
+      <div class="modal-icon">😕</div>
+      <div class="modal-title">Bạn có muốn xóa sân không?</div>
+      <div class="modal-desc">Thao tác này sẽ xóa toàn bộ thông tin của sân này.<br>Xác nhận xóa?</div>
+      <div class="modal-actions">
+        <button class="modal-btn modal-btn-outline" id="cancelDelete">Từ chối</button>
+        <button class="modal-btn modal-btn-black" id="confirmDelete">Đồng ý</button>
+      </div>
+    </div>
+  </div>
+  <!-- Modal thành công -->
+  <div class="modal-overlay" id="modalSuccess" style="display:none;">
+    <div class="modal-box">
+      <button class="modal-close" id="closeSuccess">&times;</button>
+      <div class="modal-icon modal-icon-success">🎉</div>
+      <div class="modal-title">Xóa sân thành công!</div>
+      <div class="modal-actions">
+        <button class="modal-btn modal-btn-black" id="successOk">Thanks!</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Modal logic
+    const deleteBtn = document.getElementById('deleteBtn');
+    const modalConfirm = document.getElementById('modalConfirm');
+    const modalSuccess = document.getElementById('modalSuccess');
+    const closeConfirm = document.getElementById('closeConfirm');
+    const closeSuccess = document.getElementById('closeSuccess');
+    const cancelDelete = document.getElementById('cancelDelete');
+    const confirmDelete = document.getElementById('confirmDelete');
+    const successOk = document.getElementById('successOk');
+    
+    deleteBtn.onclick = () => { modalConfirm.style.display = 'flex'; };
+    closeConfirm.onclick = cancelDelete.onclick = () => { modalConfirm.style.display = 'none'; };
+    confirmDelete.onclick = () => {
+      modalConfirm.style.display = 'none';
+      modalSuccess.style.display = 'flex';
+      setTimeout(() => { window.location.href = 'quan_ly_san_bong.html'; }, 1500);
+    };
+    closeSuccess.onclick = successOk.onclick = () => {
+      modalSuccess.style.display = 'none';
+      window.location.href = 'quan_ly_san_bong.html';
+    };
+  </script>
+</body>
+</html> 
