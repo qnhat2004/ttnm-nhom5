@@ -103,6 +103,13 @@ function submitEdit() {
 
 function renderTable(data = customers) {
   tableBody.innerHTML = "";
+  if (!data?.length) {
+    const row = document.createElement("tr");
+    row.innerHTML = `<td colspan="9" class="text-center py-4">Không có dữ liệu</td>`;
+    tableBody.appendChild(row);
+    return;
+  }
+
   data.forEach((customer, index) => {
     const row = document.createElement("tr");
 
@@ -273,7 +280,7 @@ function handleDownload() {
   document.body.removeChild(link);
 }
 
-const addModal = document.getElementById("addCustomerModal");
+const addModal = document.getElementById("addModal");
 const addCustomerForm = document.getElementById("addCustomerForm");
 
 function openAddCustomerModal() {
@@ -335,7 +342,7 @@ addCustomerForm.addEventListener("submit", function (e) {
 
   customers.push(customer);
   renderTable();
-  closeAddCustomerModal();
+  closeAddModal();
 });
 
 window.onload = () => {
