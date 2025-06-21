@@ -1,820 +1,1285 @@
 <!DOCTYPE html>
 <html lang="vi">
-<!-- Tối ưu phần HEAD -->
-<head>
+  <!-- Tối ưu phần HEAD -->
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đặt sân bóng đá</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/header.css" />
     <script src="../js/main.js"></script>
+    <script src="../js/header.js" defer></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
-        tailwind.config = {
+      tailwind.config = {
         theme: {
-            extend: {
+          extend: {
             colors: {
-                primary: "#28a745",
-                secondary: "#6c757d",
+              primary: "#28a745",
+              secondary: "#6c757d",
             },
             borderRadius: {
-                button: "8px",
+              button: "8px",
             },
-            },
+          },
         },
-        };
+      };
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet" />
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body class="bg-gray-50">
+  <body class="bg-gray-50">
+    <header class="custom-header">
+      <!-- Logo -->
+      <div class="logo-container">
+        <img src="../public/logo.png" alt="BFP Logo" width="100" height="62" />
+      </div>
+
+      <!-- Navigation -->
+      <nav class="nav-links">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="giaodiendatsan.html" class="nav-link">Đặt sân</a>
+        <a href="#" class="nav-link">Thanh toán</a>
+        <a href="customer.html" class="nav-link">Quản lý khách hàng</a>
+        <a href="quan_ly_san_bong.html" class="nav-link">Quản lý sân</a>
+        <a href="#" class="nav-link">Quản lý tài khoản</a>
+      </nav>
+
+      <!-- User Info -->
+      <div class="user-info">
+        <span class="user-name">Vũ Quang Nhật</span>
+        <svg
+          class="user-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z"
+          />
+        </svg>
+      </div>
+    </header>
 
     <!-- Form đặt sân (ẩn ban đầu) -->
-    <div id="bookingModal" class="hidden fixed inset-0 bg-black/30 flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6 relative">
+    <div
+      id="bookingModal"
+      class="hidden fixed inset-0 bg-black/30 flex items-center justify-center z-50"
+    >
+      <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6 relative">
         <!-- Header with close button -->
         <div class="flex justify-between items-center mb-2">
-        <div class="flex-1"></div>
-        <div class="text-center flex-1">
-        <h1 class="text-2 font-bold">Sân bóng La Thành</h1>
-        <p class="text-gray-600 mt-1">Loại sân: 11 v 11</p>
-        </div>
-        <div class="flex-1 flex justify-end">
-        <button id="closeBookingModal" class="text-gray-500 hover:text-gray-700 text-xl font-bold">X</button>
-
-        </div>
+          <div class="flex-1"></div>
+          <div class="text-center flex-1">
+            <h1 class="text-2 font-bold">Sân bóng La Thành</h1>
+            <p class="text-gray-600 mt-1">Loại sân: 11 v 11</p>
+          </div>
+          <div class="flex-1 flex justify-end">
+            <button
+              id="closeBookingModal"
+              class="text-gray-500 hover:text-gray-700 text-xl font-bold"
+            >
+              X
+            </button>
+          </div>
         </div>
         <!-- Booking form -->
         <form class="mt-6 space-y-5">
-            <!-- Date field -->
-            <div class="flex items-center">
+          <!-- Date field -->
+          <div class="flex items-center">
             <label class="w-48 text-right mr-4 font-medium">
-                Ngày đặt <span class="text-red-500">(*)</span>:
+              Ngày đặt <span class="text-red-500">(*)</span>:
             </label>
 
-                <div class="flex items-center space-x-2 flex-1 relative">
-                    <input
-                    id="customDateInput"
-                    type="text"
-                    class="w-full border border-gray-300 rounded p-2.5"
-                    placeholder="Chọn ngày"
-                    readonly
-                    />
-                    <button
-                    id="calendarToggleBtn"
+            <div class="flex items-center space-x-2 flex-1 relative">
+              <input
+                id="customDateInput"
+                type="text"
+                class="w-full border border-gray-300 rounded p-2.5"
+                placeholder="Chọn ngày"
+                readonly
+              />
+              <button
+                id="calendarToggleBtn"
+                type="button"
+                class="w-6 h-6 flex items-center justify-center text-gray-500 hover:text-gray-700"
+              >
+                <i class="ri-calendar-line text-xl"></i>
+              </button>
+
+              <!-- Lịch tuỳ chỉnh -->
+              <div
+                id="customCalendar"
+                class="absolute top-full left-0 mt-2 bg-white border border-gray-300 rounded shadow p-4 z-50 w-[360px] hidden"
+              >
+                <div class="flex justify-between items-center mb-3">
+                  <button
+                    id="prevMonthBtn"
                     type="button"
-                    class="w-6 h-6 flex items-center justify-center text-gray-500 hover:text-gray-700"
-                    >
-                    <i class="ri-calendar-line text-xl"></i>
-                    </button>
-
-                    <!-- Lịch tuỳ chỉnh -->
-                    <div
-                    id="customCalendar"
-                    class="absolute top-full left-0 mt-2 bg-white border border-gray-300 rounded shadow p-4 z-50 w-[360px] hidden"
-                    >
-                    <div class="flex justify-between items-center mb-3">
-                        <button id="prevMonthBtn" type="button" class="text-gray-600 hover:text-black">&lt;</button>
-                        <span id="currentMonth" class="font-medium">Tháng 6, 2025</span>
-                        <button id="nextMonthBtn" type="button" class="text-gray-600 hover:text-black">&gt;</button>
-                    </div>
-
-                    <div class="grid grid-cols-7 gap-1 text-center font-medium mb-2 text-sm text-gray-500">
-                        <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
-                    </div>
-                    <div id="calendarDays" class="grid grid-cols-7 gap-1 text-center text-sm"></div>
-                    </div>
+                    class="text-gray-600 hover:text-black"
+                  >
+                    &lt;
+                  </button>
+                  <span id="currentMonth" class="font-medium"
+                    >Tháng 6, 2025</span
+                  >
+                  <button
+                    id="nextMonthBtn"
+                    type="button"
+                    class="text-gray-600 hover:text-black"
+                  >
+                    &gt;
+                  </button>
                 </div>
 
-                <!-- Nút xem giờ -->
-                <button id="openTimeSlotForm" type="button" class="ml-3 bg-primary text-white px-4 py-2.5 rounded-button whitespace-nowrap">
-                    Xem khung giờ trống
-                </button>
+                <div
+                  class="grid grid-cols-7 gap-1 text-center font-medium mb-2 text-sm text-gray-500"
+                >
+                  <div>Mon</div>
+                  <div>Tue</div>
+                  <div>Wed</div>
+                  <div>Thu</div>
+                  <div>Fri</div>
+                  <div>Sat</div>
+                  <div>Sun</div>
+                </div>
+                <div
+                  id="calendarDays"
+                  class="grid grid-cols-7 gap-1 text-center text-sm"
+                ></div>
+              </div>
+            </div>
 
-                <!-- Form khung giờ trống -->
-                <div id="timeSlotForm" class="hidden fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-                <div class="bg-white rounded-lg shadow-lg w-full max-w-sm p-6 relative">
-                    <!-- Header -->
-                    <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-lg font-bold">Khung giờ trống</h2>
-                    <button id="closeTimeSlotForm" type="button" class="text-gray-500 hover:text-gray-700 text-lg font-bold">X</button>
-                    </div>
+            <!-- Nút xem giờ -->
+            <button
+              id="openTimeSlotForm"
+              type="button"
+              class="ml-3 bg-primary text-white px-4 py-2.5 rounded-button whitespace-nowrap"
+            >
+              Xem khung giờ trống
+            </button>
 
-                    <!-- Gạch ngang -->
-                    <hr class="mb-4">
+            <!-- Form khung giờ trống -->
+            <div
+              id="timeSlotForm"
+              class="hidden fixed inset-0 bg-black/40 flex items-center justify-center z-50"
+            >
+              <div
+                class="bg-white rounded-lg shadow-lg w-full max-w-sm p-6 relative"
+              >
+                <!-- Header -->
+                <div class="flex justify-between items-center mb-4">
+                  <h2 class="text-lg font-bold">Khung giờ trống</h2>
+                  <button
+                    id="closeTimeSlotForm"
+                    type="button"
+                    class="text-gray-500 hover:text-gray-700 text-lg font-bold"
+                  >
+                    X
+                  </button>
+                </div>
 
-                    <!-- Dòng chứa ngày và nút xem lịch -->
-                    <div class="flex items-center justify-between mb-4">
-                    <!-- Trống để giữ căn phải -->
-                    <div class="w-20"></div>
+                <!-- Gạch ngang -->
+                <hr class="mb-4" />
 
-                    <!-- Ngày hiển thị ở giữa -->
-                    <div class="text-sm text-gray-600 text-center flex-1">
-                        Ngày: <span id="currentSelectedDateText">2025-06-16</span>
-                    </div>
+                <!-- Dòng chứa ngày và nút xem lịch -->
+                <div class="flex items-center justify-between mb-4">
+                  <!-- Trống để giữ căn phải -->
+                  <div class="w-20"></div>
 
-                    <!-- Nút xem lịch -->
-                    <div class="relative inline-block text-right">
+                  <!-- Ngày hiển thị ở giữa -->
+                  <div class="text-sm text-gray-600 text-center flex-1">
+                    Ngày: <span id="currentSelectedDateText">2025-06-16</span>
+                  </div>
+
+                  <!-- Nút xem lịch -->
+                  <div class="relative inline-block text-right">
                     <!-- Nút xem lịch -->
                     <button
-                        type="button"
-                        id="customCalendarBtn"
-                        class="bg-primary text-white px-4 py-2.5 rounded-button whitespace-nowrap hover:bg-primary-dark">
-                        Xem lịch
+                      type="button"
+                      id="customCalendarBtn"
+                      class="bg-primary text-white px-4 py-2.5 rounded-button whitespace-nowrap hover:bg-primary-dark"
+                    >
+                      Xem lịch
                     </button>
 
                     <!-- Lịch hiển thị ngay dưới nút -->
                     <div
-                        id="customCalendarBox"
-                        class="absolute top-full left-0 mt-2 bg-white border border-gray-300 rounded shadow p-4 z-50 w-[360px] hidden">
-                        <div class="flex justify-between items-center mb-3">
-                        <button id="customPrevMonthBtn" type="button" class="text-gray-600 hover:text-black">&lt;</button>
-                        <span id="customCurrentMonth" class="font-medium">Tháng 6, 2025</span>
-                        <button id="customNextMonthBtn" type="button" class="text-gray-600 hover:text-black">&gt;</button>
-                        </div>
+                      id="customCalendarBox"
+                      class="absolute top-full left-0 mt-2 bg-white border border-gray-300 rounded shadow p-4 z-50 w-[360px] hidden"
+                    >
+                      <div class="flex justify-between items-center mb-3">
+                        <button
+                          id="customPrevMonthBtn"
+                          type="button"
+                          class="text-gray-600 hover:text-black"
+                        >
+                          &lt;
+                        </button>
+                        <span id="customCurrentMonth" class="font-medium"
+                          >Tháng 6, 2025</span
+                        >
+                        <button
+                          id="customNextMonthBtn"
+                          type="button"
+                          class="text-gray-600 hover:text-black"
+                        >
+                          &gt;
+                        </button>
+                      </div>
 
-                        <div class="grid grid-cols-7 gap-1 text-center font-medium mb-2 text-sm text-gray-500">
-                        <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
-                        </div>
-                        <div id="customCalendarDays" class="grid grid-cols-7 gap-1 text-center text-sm"></div>
+                      <div
+                        class="grid grid-cols-7 gap-1 text-center font-medium mb-2 text-sm text-gray-500"
+                      >
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                        <div>Sun</div>
+                      </div>
+                      <div
+                        id="customCalendarDays"
+                        class="grid grid-cols-7 gap-1 text-center text-sm"
+                      ></div>
                     </div>
-                    </div>
-
-                    </div>
-
-
-                    
-
-                    <!-- Danh sách giờ -->
-                    <div class="max-h-[60vh] overflow-y-auto space-y-2">
-                    <!-- Giờ từ 5h đến 22h -->
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">05:00 - 06:00</div>
-                    <div class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer">21:00 - 22:00</div>
-                    </div>
-                </div>
+                  </div>
                 </div>
 
-
-
+                <!-- Danh sách giờ -->
+                <div class="max-h-[60vh] overflow-y-auto space-y-2">
+                  <!-- Giờ từ 5h đến 22h -->
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    05:00 - 06:00
+                  </div>
+                  <div
+                    class="border border-gray-300 rounded p-2 text-center hover:bg-gray-100 cursor-pointer"
+                  >
+                    21:00 - 22:00
+                  </div>
+                </div>
+              </div>
             </div>
-            <!-- Team name field -->
-            <div class="flex items-center">
+          </div>
+          <!-- Team name field -->
+          <div class="flex items-center">
             <label class="w-48 text-right mr-4 font-medium">Tên đội:</label>
             <div class="flex-1">
-            <input type="text" class="w-full border border-gray-300 rounded p-2.5" placeholder="Nhập tên đội" value="Bom">
+              <input
+                type="text"
+                class="w-full border border-gray-300 rounded p-2.5"
+                placeholder="Nhập tên đội"
+                value="Bom"
+              />
             </div>
             <div class="w-[104px]"></div>
-            </div>
-            <!-- Phone number field -->
-            <div class="flex items-center">
-            <label class="w-48 text-right mr-4 font-medium">Số điện thoại <span class="text-red-500">(*)</span>:</label>
+          </div>
+          <!-- Phone number field -->
+          <div class="flex items-center">
+            <label class="w-48 text-right mr-4 font-medium"
+              >Số điện thoại <span class="text-red-500">(*)</span>:</label
+            >
             <div class="flex-1">
-            <input type="tel" class="w-full border border-gray-300 rounded p-2.5" placeholder="Nhập số điện thoại" value="1234567">
+              <input
+                type="tel"
+                class="w-full border border-gray-300 rounded p-2.5"
+                placeholder="Nhập số điện thoại"
+                value="1234567"
+              />
             </div>
             <div class="w-[104px]"></div>
+          </div>
+
+          <!-- Team captain field -->
+          <div class="flex items-center">
+            <label class="w-48 text-right mr-4 font-medium"
+              >Tên đội trưởng:</label
+            >
+            <div class="flex-1">
+              <input
+                type="text"
+                class="w-full border border-gray-300 rounded p-2.5"
+                placeholder="Nhập tên đội trưởng"
+              />
             </div>
+            <div class="w-[104px]"></div>
+          </div>
 
-            <!-- Team captain field -->
-            <div class="flex items-center">
-                <label class="w-48 text-right mr-4 font-medium">Tên đội trưởng:</label>
-                <div class="flex-1">
-                    <input type="text" class="w-full border border-gray-300 rounded p-2.5" placeholder="Nhập tên đội trưởng">
-                </div>
-                <div class="w-[104px]"></div>
-            </div>
-
-
-            <!-- Team captain field -->
-            <div class="flex items-center">
-                <label class="w-48 text-right mr-4 font-medium">Chọn sân <span class="text-red-500">(*)</span>:</label>
-                <div class="flex-1">
-                <div class="relative" id="fieldDropdownContainer">
-                <div class="w-full border border-gray-300 rounded p-2.5 pr-10 cursor-pointer flex justify-between items-center" id="fieldDropdownBtn">
-                <span id="selectedField">Chọn sân</span>
-                <div class="w-6 h-6 flex items-center justify-center text-gray-500">
-                <i class="ri-arrow-down-s-line"></i>
-                </div>
+          <!-- Team captain field -->
+          <div class="flex items-center">
+            <label class="w-48 text-right mr-4 font-medium"
+              >Chọn sân <span class="text-red-500">(*)</span>:</label
+            >
+            <div class="flex-1">
+              <div class="relative" id="fieldDropdownContainer">
+                <div
+                  class="w-full border border-gray-300 rounded p-2.5 pr-10 cursor-pointer flex justify-between items-center"
+                  id="fieldDropdownBtn"
+                >
+                  <span id="selectedField">Chọn sân</span>
+                  <div
+                    class="w-6 h-6 flex items-center justify-center text-gray-500"
+                  >
+                    <i class="ri-arrow-down-s-line"></i>
+                  </div>
                 </div>
                 <div class="dropdown-content w-full" id="fieldDropdown">
-                <div class="p-2.5 hover:bg-gray-100 cursor-pointer">Sân A</div>
-                <div class="p-2.5 hover:bg-gray-100 cursor-pointer">Sân B</div>
-                <div class="p-2.5 hover:bg-gray-100 cursor-pointer">Sân C</div>
-                <div class="p-2.5 hover:bg-gray-100 cursor-pointer">Sân D</div>
+                  <div class="p-2.5 hover:bg-gray-100 cursor-pointer">
+                    Sân A
+                  </div>
+                  <div class="p-2.5 hover:bg-gray-100 cursor-pointer">
+                    Sân B
+                  </div>
+                  <div class="p-2.5 hover:bg-gray-100 cursor-pointer">
+                    Sân C
+                  </div>
+                  <div class="p-2.5 hover:bg-gray-100 cursor-pointer">
+                    Sân D
+                  </div>
                 </div>
-                </div>
-                </div>
-                <div class="w-[104px]"></div>
+              </div>
             </div>
+            <div class="w-[104px]"></div>
+          </div>
 
-            <!-- Đặt từ -->
-            <div class="flex items-center">
-            <label class="w-48 text-right mr-4 font-medium">Đặt từ <span class="text-red-500">(*)</span>:</label>
+          <!-- Đặt từ -->
+          <div class="flex items-center">
+            <label class="w-48 text-right mr-4 font-medium"
+              >Đặt từ <span class="text-red-500">(*)</span>:</label
+            >
             <div class="flex-1 flex space-x-3">
-                
-                <!-- Giờ -->
-                <div class="w-[140px] relative" id="startHourContainer">
-                <div class="w-full border border-gray-300 rounded p-2.5 pr-10 cursor-pointer flex justify-between items-center" id="startHourBtn">
-                    <span id="selectedStartHour">9 Giờ</span>
-                    <i class="ri-arrow-down-s-line text-gray-500"></i>
+              <!-- Giờ -->
+              <div class="w-[140px] relative" id="startHourContainer">
+                <div
+                  class="w-full border border-gray-300 rounded p-2.5 pr-10 cursor-pointer flex justify-between items-center"
+                  id="startHourBtn"
+                >
+                  <span id="selectedStartHour">9 Giờ</span>
+                  <i class="ri-arrow-down-s-line text-gray-500"></i>
                 </div>
                 <!-- dropdown -->
-                </div>
+              </div>
 
-                <!-- Phút -->
-                <div class="w-[140px] relative" id="startMinuteContainer">
-                <div class="w-full border border-gray-300 rounded p-2.5 pr-10 cursor-pointer flex justify-between items-center" id="startMinuteBtn">
-                    <span id="selectedStartMinute">30 Phút</span>
-                    <i class="ri-arrow-down-s-line text-gray-500"></i>
+              <!-- Phút -->
+              <div class="w-[140px] relative" id="startMinuteContainer">
+                <div
+                  class="w-full border border-gray-300 rounded p-2.5 pr-10 cursor-pointer flex justify-between items-center"
+                  id="startMinuteBtn"
+                >
+                  <span id="selectedStartMinute">30 Phút</span>
+                  <i class="ri-arrow-down-s-line text-gray-500"></i>
                 </div>
                 <!-- dropdown -->
-                </div>
-
+              </div>
             </div>
-            </div>
+          </div>
 
-            <!-- Đến -->
-            <div class="flex items-center">
-            <label class="w-48 text-right mr-4 font-medium">Đến <span class="text-red-500">(*)</span>:</label>
+          <!-- Đến -->
+          <div class="flex items-center">
+            <label class="w-48 text-right mr-4 font-medium"
+              >Đến <span class="text-red-500">(*)</span>:</label
+            >
             <div class="flex-1 flex space-x-3">
-
-                <!-- Giờ -->
-                <div class="w-[140px] relative" id="endHourContainer">
-                <div class="w-full border border-gray-300 rounded p-2.5 pr-10 cursor-pointer flex justify-between items-center" id="endHourBtn">
-                    <span id="selectedEndHour">11 Giờ</span>
-                    <i class="ri-arrow-down-s-line text-gray-500"></i>
+              <!-- Giờ -->
+              <div class="w-[140px] relative" id="endHourContainer">
+                <div
+                  class="w-full border border-gray-300 rounded p-2.5 pr-10 cursor-pointer flex justify-between items-center"
+                  id="endHourBtn"
+                >
+                  <span id="selectedEndHour">11 Giờ</span>
+                  <i class="ri-arrow-down-s-line text-gray-500"></i>
                 </div>
-                </div>
+              </div>
 
-                <!-- Phút -->
-                <div class="w-[140px] relative" id="endMinuteContainer">
-                <div class="w-full border border-gray-300 rounded p-2.5 pr-10 cursor-pointer flex justify-between items-center" id="endMinuteBtn">
-                    <span id="selectedEndMinute">30 Phút</span>
-                    <i class="ri-arrow-down-s-line text-gray-500"></i>
+              <!-- Phút -->
+              <div class="w-[140px] relative" id="endMinuteContainer">
+                <div
+                  class="w-full border border-gray-300 rounded p-2.5 pr-10 cursor-pointer flex justify-between items-center"
+                  id="endMinuteBtn"
+                >
+                  <span id="selectedEndMinute">30 Phút</span>
+                  <i class="ri-arrow-down-s-line text-gray-500"></i>
                 </div>
-                </div>
+              </div>
 
-                <!-- Nút kiểm tra -->
-                <button id="checkAvailability" type="button" class="bg-primary text-white px-6 py-2.5 rounded-button whitespace-nowrap">
-                    Kiểm tra
-                </button>
-
+              <!-- Nút kiểm tra -->
+              <button
+                id="checkAvailability"
+                type="button"
+                class="bg-primary text-white px-6 py-2.5 rounded-button whitespace-nowrap"
+              >
+                Kiểm tra
+              </button>
             </div>
-            </div>
+          </div>
 
-            <!-- Submit button -->
-            <div id ="bookingButtonContainer" class="mt-8 flex justify-center">
-                <button id="btn-sumbit" type="button" class="bg-primary text-white font-medium py-3 px-16 rounded-button text-lg whitespace-nowrap">
-                    Đặt sân
-                </button>
+          <!-- Submit button -->
+          <div id="bookingButtonContainer" class="mt-8 flex justify-center">
+            <button
+              id="btn-sumbit"
+              type="button"
+              class="bg-primary text-white font-medium py-3 px-16 rounded-button text-lg whitespace-nowrap"
+            >
+              Đặt sân
+            </button>
 
-                <p id="noSlotMessage" class="text-black-500 font-medium py-3 px-16 text-lg whitespace-nowrap hidden">
-                    Không còn sân trống
-                </p>
-            </div>
+            <p
+              id="noSlotMessage"
+              class="text-black-500 font-medium py-3 px-16 text-lg whitespace-nowrap hidden"
+            >
+              Không còn sân trống
+            </p>
+          </div>
 
-            <!-- Modal thành công -->
-            <div id="successModal" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-            <div class="relative bg-white rounded-lg shadow-lg p-8 max-w-sm text-center">
-                
-                <!-- Nút Close -->
-                <button type="button" onclick="closeModal('successModal')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-2xl font-bold">
+          <!-- Modal thành công -->
+          <div
+            id="successModal"
+            class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
+          >
+            <div
+              class="relative bg-white rounded-lg shadow-lg p-8 max-w-sm text-center"
+            >
+              <!-- Nút Close -->
+              <button
+                type="button"
+                onclick="closeModal('successModal')"
+                class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-2xl font-bold"
+              >
                 &times;
-                </button>
+              </button>
 
-                <!-- Ảnh thay cho icon -->
-                <div class="flex justify-center mb-4">
-                <img src="../public/succes.png" alt="Thành công" class="w-16 h-16">
-                </div>
+              <!-- Ảnh thay cho icon -->
+              <div class="flex justify-center mb-4">
+                <img
+                  src="../public/succes.png"
+                  alt="Thành công"
+                  class="w-16 h-16"
+                />
+              </div>
 
-                <!-- Tiêu đề -->
-                <h2 class="text-xl font-bold mb-2 text-green-600">Đặt sân thành công!</h2>
-                <p class="text-green-600 mb-4">Cảm ơn bạn đã đặt sân. Hẹn gặp lại trên sân bóng!</p>
+              <!-- Tiêu đề -->
+              <h2 class="text-xl font-bold mb-2 text-green-600">
+                Đặt sân thành công!
+              </h2>
+              <p class="text-green-600 mb-4">
+                Cảm ơn bạn đã đặt sân. Hẹn gặp lại trên sân bóng!
+              </p>
 
-                <!-- Nút OK -->
-                <button onclick="closeModal('successModal')" class="mt-2 px-4 py-2 bg-primary text-white rounded hover:bg-green-600">
+              <!-- Nút OK -->
+              <button
+                onclick="closeModal('successModal')"
+                class="mt-2 px-4 py-2 bg-primary text-white rounded hover:bg-green-600"
+              >
                 OK
-                </button>
+              </button>
             </div>
-            </div>
+          </div>
 
-
-
-            <!-- Modal thất bại -->
-            <div id="errorModal" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-            <div class="relative bg-white rounded-lg shadow-lg p-8 max-w-sm text-center">
-                
-                <!-- Nút Close -->
-                <button type="button" onclick="closeModal('errorModal')" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-2xl font-bold">
+          <!-- Modal thất bại -->
+          <div
+            id="errorModal"
+            class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
+          >
+            <div
+              class="relative bg-white rounded-lg shadow-lg p-8 max-w-sm text-center"
+            >
+              <!-- Nút Close -->
+              <button
+                type="button"
+                onclick="closeModal('errorModal')"
+                class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-2xl font-bold"
+              >
                 &times;
-                </button>
+              </button>
 
-                <!-- Ảnh lỗi -->
-                <div class="flex justify-center mb-4">
-                <img src="../public/error.png" alt="Thất bại" class="w-16 h-16">
-                </div>
+              <!-- Ảnh lỗi -->
+              <div class="flex justify-center mb-4">
+                <img
+                  src="../public/error.png"
+                  alt="Thất bại"
+                  class="w-16 h-16"
+                />
+              </div>
 
-                <!-- Tiêu đề -->
-                <h2 class="text-xl font-bold mb-2 text-red-600">Đặt sân thất bại</h2>
-                <p class="text-red-600 mb-4">Sân đã có người đặt.</p>
+              <!-- Tiêu đề -->
+              <h2 class="text-xl font-bold mb-2 text-red-600">
+                Đặt sân thất bại
+              </h2>
+              <p class="text-red-600 mb-4">Sân đã có người đặt.</p>
 
-                <!-- Nút OK -->
-                <button onclick="closeModal('errorModal')" class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
+              <!-- Nút OK -->
+              <button
+                onclick="closeModal('errorModal')"
+                class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+              >
                 OK
-                </button>
+              </button>
             </div>
-            </div>
-
-
-
+          </div>
         </form>
-        </div>
+      </div>
     </div>
-
 
     <!-- Form đặt sân -->
     <!-- Header -->
     <div id="header-container"></div>
-    
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row gap-6">
+        <!-- Sidebar Filters -->
+        <div class="w-full md:w-1/4 bg-white rounded-lg shadow-sm p-4">
+          <!-- Date Picker -->
+          <div class="mb-6">
+            <p class="font-semibold text-gray-700 mb-2">Chọn ngày</p>
+            <!-- Header chọn tháng với nút điều hướng -->
+            <div class="flex items-center justify-between mb-3">
+              <button class="text-xl px-2 hover:text-primary" id="prevMonthBtn">
+                &#8592;
+              </button>
 
-        
-        <div class="flex flex-col md:flex-row gap-6">
-            <!-- Sidebar Filters -->
-            <div class="w-full md:w-1/4 bg-white rounded-lg shadow-sm p-4">
-                <!-- Date Picker -->
-                <div class="mb-6">
-                <p class="font-semibold text-gray-700 mb-2">Chọn ngày</p>
-  <!-- Header chọn tháng với nút điều hướng -->
-  <div class="flex items-center justify-between mb-3">
-    <button class="text-xl px-2 hover:text-primary" id="prevMonthBtn">&#8592;</button>
+              <!-- Ngày đang chọn hiển thị ở giữa -->
+              <h2
+                id="selectedDateDisplay"
+                class="font-medium text-center flex-1"
+              >
+                15/06/2025
+              </h2>
 
-    <!-- Ngày đang chọn hiển thị ở giữa -->
-    <h2 id="selectedDateDisplay" class="font-medium text-center flex-1">15/06/2025</h2>
+              <button class="text-xl px-2 hover:text-primary" id="nextMonthBtn">
+                &#8594;
+              </button>
+            </div>
 
-    <button class="text-xl px-2 hover:text-primary" id="nextMonthBtn">&#8594;</button>
-  </div>
+            <!-- Lưới thứ trong tuần -->
+            <div class="calendar-grid">
+              <div
+                class="grid grid-cols-7 mb-2 text-center font-medium text-gray-600"
+              >
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+                <div>Sun</div>
+              </div>
 
-  <!-- Lưới thứ trong tuần -->
-  <div class="calendar-grid">
-    <div class="grid grid-cols-7 mb-2 text-center font-medium text-gray-600">
-      <div>Mon</div>
-      <div>Tue</div>
-      <div>Wed</div>
-      <div>Thu</div>
-      <div>Fri</div>
-      <div>Sat</div>
-      <div>Sun</div>
-    </div>
+              <!-- Các ngày -->
+              <div
+                class="grid grid-cols-7 gap-1 text-center"
+                id="calendarDates"
+              >
+                <div class="date">1</div>
+                <div class="date">2</div>
+                <div class="date">3</div>
+                <div class="date">4</div>
+                <div class="date">5</div>
+                <div class="date">6</div>
+                <div class="date">7</div>
+                <div class="date">8</div>
+                <div class="date">9</div>
+                <div class="date">10</div>
+                <div class="date">11</div>
+                <div class="date">12</div>
+                <div class="date">13</div>
+                <div class="date">14</div>
+                <div class="date">15</div>
+                <div class="date">16</div>
+                <div class="date">17</div>
+                <div class="date">18</div>
+                <div class="date">19</div>
+                <div class="date">20</div>
+                <div class="date">21</div>
+                <div class="date">22</div>
+                <div class="date">23</div>
+                <div class="date">24</div>
+                <div class="date">25</div>
+                <div class="date">26</div>
+                <div class="date">27</div>
+                <div class="date">28</div>
+                <div class="date">29</div>
+                <div class="date">30</div>
+                <div class="date">1</div>
+                <div class="date">2</div>
+                <div class="date">3</div>
+                <div class="date">4</div>
+                <div class="date">5</div>
+              </div>
+            </div>
+          </div>
 
-    <!-- Các ngày -->
-        <div class="grid grid-cols-7 gap-1 text-center" id="calendarDates">
-        <div class="date">1</div>
-        <div class="date">2</div>
-        <div class="date">3</div>
-        <div class="date">4</div>
-        <div class="date">5</div>
-        <div class="date">6</div>
-        <div class="date">7</div>
-        <div class="date">8</div>
-        <div class="date">9</div>
-        <div class="date">10</div>
-        <div class="date">11</div>
-        <div class="date">12</div>
-        <div class="date">13</div>
-        <div class="date">14</div>
-        <div class="date">15</div>
-        <div class="date">16</div>
-        <div class="date">17</div>
-        <div class="date">18</div>
-        <div class="date">19</div>
-        <div class="date">20</div>
-        <div class="date">21</div>
-        <div class="date">22</div>
-        <div class="date">23</div>
-        <div class="date">24</div>
-        <div class="date">25</div>
-        <div class="date">26</div>
-        <div class="date">27</div>
-        <div class="date">28</div>
-        <div class="date">29</div>
-        <div class="date">30</div>
-        <div class="date">1</div>
-        <div class="date">2</div>
-        <div class="date">3</div>
-        <div class="date">4</div>
-        <div class="date">5</div>
+          <!-- Time Picker -->
+          <div class="mb-6">
+            <h2 class="font-medium mb-3">Thời gian</h2>
+            <input
+              type="text"
+              value="9:00 AM"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+          </div>
+
+          <!-- Field Type Filter -->
+          <div class="mb-6">
+            <h2 class="font-medium mb-3">Loại sân</h2>
+            <div id="fieldTypeButtons" class="flex flex-wrap gap-2">
+              <button
+                class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent !rounded-button whitespace-nowrap text-black"
+              >
+                5 x 5
+              </button>
+              <button
+                class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent !rounded-button whitespace-nowrap text-black"
+              >
+                7 x 7
+              </button>
+              <button
+                class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent !rounded-button whitespace-nowrap text-black"
+              >
+                11 x 11
+              </button>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex gap-3">
+            <button
+              class="w-1/2 border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent !rounded-button whitespace-nowrap"
+            >
+              Xóa
+            </button>
+            <button
+              class="w-1/2 bg-primary text-white rounded-lg px-4 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+            >
+              Lọc
+            </button>
+          </div>
         </div>
-    </div>
-    </div>
 
-                <!-- Time Picker -->
-                <div class="mb-6">
-                    <h2 class="font-medium mb-3">Thời gian</h2>
-                    <input type="text" value="9:00 AM" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                </div>
-
-                <!-- Field Type Filter -->
-                <div class="mb-6">
-                    <h2 class="font-medium mb-3">Loại sân</h2>
-                    <div id="fieldTypeButtons" class="flex flex-wrap gap-2">
-                        <button class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent !rounded-button whitespace-nowrap text-black">
-                        5 x 5
-                        </button>
-                        <button class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent !rounded-button whitespace-nowrap text-black">
-                        7 x 7
-                        </button>
-                        <button class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent !rounded-button whitespace-nowrap text-black">
-                        11 x 11
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="flex gap-3">
-                    <button class="w-1/2 border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent !rounded-button whitespace-nowrap">Xóa</button>
-                    <button class="w-1/2 bg-primary text-white rounded-lg px-4 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">Lọc</button>
-                </div>
+        <!-- Search Bar for Mobile -->
+        <div class="md:hidden w-full mb-4">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Tìm kiếm sân..."
+              class="w-full border border-gray-300 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+            <div
+              class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center"
+            >
+              <i class="ri-search-line text-gray-400"></i>
             </div>
-
-            <!-- Search Bar for Mobile -->
-            <div class="md:hidden w-full mb-4">
-                <div class="relative">
-                    <input type="text" placeholder="Tìm kiếm sân..." class="w-full border border-gray-300 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center">
-                        <i class="ri-search-line text-gray-400"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Football Fields Grid -->
-            <div class="w-full md:w-3/4">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                    <h1 class="text-2xl font-bold mb-4 md:mb-0">Đặt sân bóng đá</h1>
-
-                    <div class="relative w-full md:w-1/2">
-                        <input type="text" placeholder="Tìm kiếm sân..." class="w-full border border-gray-300 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                        <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center">
-                        <i class="ri-search-line text-gray-400"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Fields Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Field Card 1 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=1&orientation=landscape" alt="Sân bóng" class="w-full h-48 object-cover object-top">
-                        <div class="p-4">
-                            <div class="text-sm text-gray-600 mb-1">Giờ mở cửa 8:00 - 22:00</div>
-                            <div class="text-sm text-gray-600 mb-2">Loại sân: 5 x 5</div>
-                            <h3 class="font-medium text-lg mb-1">Sân bóng Lê Thành</h3>
-                            <div class="flex items-center mb-2">
-                                <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                    <i class="ri-map-pin-line text-gray-500"></i>
-                                </div>
-                                <span class="text-sm text-gray-600">Quận Thanh Xuân, Hà Nội</span>
-                            </div>
-                            <div class="flex items-center mb-4">
-                                <div class="flex">
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-half-fill text-yellow-400"></i>
-                                </div>
-                                <span class="text-sm text-gray-600 ml-1">4 trên 5 (28)</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <button onclick="window.location.href='xemchitiet.html'" class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">
-                                    Xem chi tiết
-                                </button>
-                                <button class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">Đặt sân</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Field Card 2 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=2&orientation=landscape" alt="Sân bóng" class="w-full h-48 object-cover object-top">
-                        <div class="p-4">
-                            <div class="text-sm text-gray-600 mb-1">Giờ mở cửa 9:00 - 22:00</div>
-                            <div class="text-sm text-gray-600 mb-2">Loại sân: 5 x 5</div>
-                            <h3 class="font-medium text-lg mb-1">Sân bóng Lê Thành</h3>
-                            <div class="flex items-center mb-2">
-                                <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                    <i class="ri-map-pin-line text-gray-500"></i>
-                                </div>
-                                <span class="text-sm text-gray-600">Quận Thanh Xuân, Hà Nội</span>
-                            </div>
-                            <div class="flex items-center mb-4">
-                                <div class="flex">
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-line text-yellow-400"></i>
-                                </div>
-                                <span class="text-sm text-gray-600 ml-1">4 trên 5 (34)</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <button onclick="window.location.href='xemchitiet.html'" class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">
-                                    Xem chi tiết
-                                </button>
-                                <button class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">Đặt sân</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Field Card 3 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=3&orientation=landscape" alt="Sân bóng" class="w-full h-48 object-cover object-top">
-                        <div class="p-4">
-                            <div class="text-sm text-gray-600 mb-1">Giờ mở cửa 8:00 - 22:00</div>
-                            <div class="text-sm text-gray-600 mb-2">Loại sân: 5 x 5</div>
-                            <h3 class="font-medium text-lg mb-1">Sân bóng Lê Thành</h3>
-                            <div class="flex items-center mb-2">
-                                <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                    <i class="ri-map-pin-line text-gray-500"></i>
-                                </div>
-                                <span class="text-sm text-gray-600">Quận Thanh Xuân, Hà Nội</span>
-                            </div>
-                            <div class="flex items-center mb-4">
-                                <div class="flex">
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-half-fill text-yellow-400"></i>
-                                </div>
-                                <span class="text-sm text-gray-600 ml-1">4 trên 5 (42)</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <button onclick="window.location.href='xemchitiet.html'" class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">
-                                    Xem chi tiết
-                                </button>
-                                <button class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">Đặt sân</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Field Card 4 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=4&orientation=landscape" alt="Sân bóng" class="w-full h-48 object-cover object-top">
-                        <div class="p-4">
-                            <div class="text-sm text-gray-600 mb-1">Giờ mở cửa 7:00 - 23:00</div>
-                            <div class="text-sm text-gray-600 mb-2">Loại sân: 5 x 5</div>
-                            <h3 class="font-medium text-lg mb-1">Sân bóng Minh Khai</h3>
-                            <div class="flex items-center mb-2">
-                                <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                    <i class="ri-map-pin-line text-gray-500"></i>
-                                </div>
-                                <span class="text-sm text-gray-600">Quận Hai Bà Trưng, Hà Nội</span>
-                            </div>
-                            <div class="flex items-center mb-4">
-                                <div class="flex">
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-line text-yellow-400"></i>
-                                </div>
-                                <span class="text-sm text-gray-600 ml-1">4 trên 5 (19)</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <button onclick="window.location.href='xemchitiet.html'" class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">
-                                    Xem chi tiết
-                                </button>
-                                <button class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">Đặt sân</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Field Card 5 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=5&orientation=landscape" alt="Sân bóng" class="w-full h-48 object-cover object-top">
-                        <div class="p-4">
-                            <div class="text-sm text-gray-600 mb-1">Giờ mở cửa 8:00 - 22:00</div>
-                            <div class="text-sm text-gray-600 mb-2">Loại sân: 7 x 7</div>
-                            <h3 class="font-medium text-lg mb-1">Sân bóng Đại học Bách Khoa</h3>
-                            <div class="flex items-center mb-2">
-                                <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                    <i class="ri-map-pin-line text-gray-500"></i>
-                                </div>
-                                <span class="text-sm text-gray-600">Quận Hai Bà Trưng, Hà Nội</span>
-                            </div>
-                            <div class="flex items-center mb-4">
-                                <div class="flex">
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-half-fill text-yellow-400"></i>
-                                </div>
-                                <span class="text-sm text-gray-600 ml-1">4.5 trên 5 (37)</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <button onclick="window.location.href='xemchitiet.html'" class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">
-                                    Xem chi tiết
-                                </button>
-                                <button class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">Đặt sân</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Field Card 6 -->
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=6&orientation=landscape" alt="Sân bóng" class="w-full h-48 object-cover object-top">
-                        <div class="p-4">
-                            <div class="text-sm text-gray-600 mb-1">Giờ mở cửa 6:00 - 23:00</div>
-                            <div class="text-sm text-gray-600 mb-2">Loại sân: 11 x 11</div>
-                            <h3 class="font-medium text-lg mb-1">Sân vận động Mỹ Đình</h3>
-                            <div class="flex items-center mb-2">
-                                <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                    <i class="ri-map-pin-line text-gray-500"></i>
-                                </div>
-                                <span class="text-sm text-gray-600">Quận Nam Từ Liêm, Hà Nội</span>
-                            </div>
-                            <div class="flex items-center mb-4">
-                                <div class="flex">
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                </div>
-                                <span class="text-sm text-gray-600 ml-1">5 trên 5 (52)</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <button onclick="window.location.href='xemchitiet.html'" class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">
-                                    Xem chi tiết
-                                </button>
-                                <button class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">Đặt sân</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=6&orientation=landscape" alt="Sân bóng" class="w-full h-48 object-cover object-top">
-                        <div class="p-4">
-                            <div class="text-sm text-gray-600 mb-1">Giờ mở cửa 6:00 - 23:00</div>
-                            <div class="text-sm text-gray-600 mb-2">Loại sân: 11 x 11</div>
-                            <h3 class="font-medium text-lg mb-1">Sân vận động Mỹ Đình</h3>
-                            <div class="flex items-center mb-2">
-                                <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                    <i class="ri-map-pin-line text-gray-500"></i>
-                                </div>
-                                <span class="text-sm text-gray-600">Quận Nam Từ Liêm, Hà Nội</span>
-                            </div>
-                            <div class="flex items-center mb-4">
-                                <div class="flex">
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                </div>
-                                <span class="text-sm text-gray-600 ml-1">5 trên 5 (52)</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <button onclick="window.location.href='xemchitiet.html'" class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">
-                                    Xem chi tiết
-                                </button>
-                                <button class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">Đặt sân</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=6&orientation=landscape" alt="Sân bóng" class="w-full h-48 object-cover object-top">
-                        <div class="p-4">
-                            <div class="text-sm text-gray-600 mb-1">Giờ mở cửa 6:00 - 23:00</div>
-                            <div class="text-sm text-gray-600 mb-2">Loại sân: 11 x 11</div>
-                            <h3 class="font-medium text-lg mb-1">Sân vận động Mỹ Đình</h3>
-                            <div class="flex items-center mb-2">
-                                <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                    <i class="ri-map-pin-line text-gray-500"></i>
-                                </div>
-                                <span class="text-sm text-gray-600">Quận Nam Từ Liêm, Hà Nội</span>
-                            </div>
-                            <div class="flex items-center mb-4">
-                                <div class="flex">
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                </div>
-                                <span class="text-sm text-gray-600 ml-1">5 trên 5 (52)</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <button onclick="window.location.href='xemchitiet.html'" class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">
-                                    Xem chi tiết
-                                </button>
-                                <button class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">Đặt sân</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=6&orientation=landscape" alt="Sân bóng" class="w-full h-48 object-cover object-top">
-                        <div class="p-4">
-                            <div class="text-sm text-gray-600 mb-1">Giờ mở cửa 6:00 - 23:00</div>
-                            <div class="text-sm text-gray-600 mb-2">Loại sân: 11 x 11</div>
-                            <h3 class="font-medium text-lg mb-1">Sân vận động Mỹ Đình</h3>
-                            <div class="flex items-center mb-2">
-                                <div class="w-4 h-4 flex items-center justify-center mr-1">
-                                    <i class="ri-map-pin-line text-gray-500"></i>
-                                </div>
-                                <span class="text-sm text-gray-600">Quận Nam Từ Liêm, Hà Nội</span>
-                            </div>
-                            <div class="flex items-center mb-4">
-                                <div class="flex">
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                    <i class="ri-star-fill text-yellow-400"></i>
-                                </div>
-                                <span class="text-sm text-gray-600 ml-1">5 trên 5 (52)</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <button onclick="window.location.href='xemchitiet.html'" class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">
-                                    Xem chi tiết
-                                </button>
-                                <button class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap">Đặt sân</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pagination -->
-                <div class="flex justify-center mt-8">
-                    <nav class="flex items-center space-x-1">
-                        <a href="#" class="px-3 py-2 rounded-lg text-primary font-medium bg-primary/10">1</a>
-                        <a href="#" class="px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-100">2</a>
-                        <span class="px-3 py-2">...</span>
-                        <a href="#" class="px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-100">10</a>
-                        <a href="#" class="px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-100">
-                            <div class="w-5 h-5 flex items-center justify-center">
-                                <i class="ri-arrow-right-s-line"></i>
-                            </div>
-                        </a>
-                    </nav>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <!-- Football Fields Grid -->
+        <div class="w-full md:w-3/4">
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-between mb-6"
+          >
+            <h1 class="text-2xl font-bold mb-4 md:mb-0">Đặt sân bóng đá</h1>
+
+            <div class="relative w-full md:w-1/2">
+              <input
+                type="text"
+                placeholder="Tìm kiếm sân..."
+                class="w-full border border-gray-300 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+              <div
+                class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center"
+              >
+                <i class="ri-search-line text-gray-400"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fields Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Field Card 1 -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=1&orientation=landscape"
+                alt="Sân bóng"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div class="p-4">
+                <div class="text-sm text-gray-600 mb-1">
+                  Giờ mở cửa 8:00 - 22:00
+                </div>
+                <div class="text-sm text-gray-600 mb-2">Loại sân: 5 x 5</div>
+                <h3 class="font-medium text-lg mb-1">Sân bóng Lê Thành</h3>
+                <div class="flex items-center mb-2">
+                  <div class="w-4 h-4 flex items-center justify-center mr-1">
+                    <i class="ri-map-pin-line text-gray-500"></i>
+                  </div>
+                  <span class="text-sm text-gray-600"
+                    >Quận Thanh Xuân, Hà Nội</span
+                  >
+                </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex">
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-half-fill text-yellow-400"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1">4 trên 5 (28)</span>
+                </div>
+                <div class="flex gap-2">
+                  <button
+                    onclick="window.location.href='xemchitiet.html'"
+                    class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Xem chi tiết
+                  </button>
+                  <button
+                    class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Đặt sân
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Field Card 2 -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=2&orientation=landscape"
+                alt="Sân bóng"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div class="p-4">
+                <div class="text-sm text-gray-600 mb-1">
+                  Giờ mở cửa 9:00 - 22:00
+                </div>
+                <div class="text-sm text-gray-600 mb-2">Loại sân: 5 x 5</div>
+                <h3 class="font-medium text-lg mb-1">Sân bóng Lê Thành</h3>
+                <div class="flex items-center mb-2">
+                  <div class="w-4 h-4 flex items-center justify-center mr-1">
+                    <i class="ri-map-pin-line text-gray-500"></i>
+                  </div>
+                  <span class="text-sm text-gray-600"
+                    >Quận Thanh Xuân, Hà Nội</span
+                  >
+                </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex">
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-line text-yellow-400"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1">4 trên 5 (34)</span>
+                </div>
+                <div class="flex gap-2">
+                  <button
+                    onclick="window.location.href='xemchitiet.html'"
+                    class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Xem chi tiết
+                  </button>
+                  <button
+                    class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Đặt sân
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Field Card 3 -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=3&orientation=landscape"
+                alt="Sân bóng"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div class="p-4">
+                <div class="text-sm text-gray-600 mb-1">
+                  Giờ mở cửa 8:00 - 22:00
+                </div>
+                <div class="text-sm text-gray-600 mb-2">Loại sân: 5 x 5</div>
+                <h3 class="font-medium text-lg mb-1">Sân bóng Lê Thành</h3>
+                <div class="flex items-center mb-2">
+                  <div class="w-4 h-4 flex items-center justify-center mr-1">
+                    <i class="ri-map-pin-line text-gray-500"></i>
+                  </div>
+                  <span class="text-sm text-gray-600"
+                    >Quận Thanh Xuân, Hà Nội</span
+                  >
+                </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex">
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-half-fill text-yellow-400"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1">4 trên 5 (42)</span>
+                </div>
+                <div class="flex gap-2">
+                  <button
+                    onclick="window.location.href='xemchitiet.html'"
+                    class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Xem chi tiết
+                  </button>
+                  <button
+                    class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Đặt sân
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Field Card 4 -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=4&orientation=landscape"
+                alt="Sân bóng"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div class="p-4">
+                <div class="text-sm text-gray-600 mb-1">
+                  Giờ mở cửa 7:00 - 23:00
+                </div>
+                <div class="text-sm text-gray-600 mb-2">Loại sân: 5 x 5</div>
+                <h3 class="font-medium text-lg mb-1">Sân bóng Minh Khai</h3>
+                <div class="flex items-center mb-2">
+                  <div class="w-4 h-4 flex items-center justify-center mr-1">
+                    <i class="ri-map-pin-line text-gray-500"></i>
+                  </div>
+                  <span class="text-sm text-gray-600"
+                    >Quận Hai Bà Trưng, Hà Nội</span
+                  >
+                </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex">
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-line text-yellow-400"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1">4 trên 5 (19)</span>
+                </div>
+                <div class="flex gap-2">
+                  <button
+                    onclick="window.location.href='xemchitiet.html'"
+                    class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Xem chi tiết
+                  </button>
+                  <button
+                    class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Đặt sân
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Field Card 5 -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=5&orientation=landscape"
+                alt="Sân bóng"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div class="p-4">
+                <div class="text-sm text-gray-600 mb-1">
+                  Giờ mở cửa 8:00 - 22:00
+                </div>
+                <div class="text-sm text-gray-600 mb-2">Loại sân: 7 x 7</div>
+                <h3 class="font-medium text-lg mb-1">
+                  Sân bóng Đại học Bách Khoa
+                </h3>
+                <div class="flex items-center mb-2">
+                  <div class="w-4 h-4 flex items-center justify-center mr-1">
+                    <i class="ri-map-pin-line text-gray-500"></i>
+                  </div>
+                  <span class="text-sm text-gray-600"
+                    >Quận Hai Bà Trưng, Hà Nội</span
+                  >
+                </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex">
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-half-fill text-yellow-400"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1"
+                    >4.5 trên 5 (37)</span
+                  >
+                </div>
+                <div class="flex gap-2">
+                  <button
+                    onclick="window.location.href='xemchitiet.html'"
+                    class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Xem chi tiết
+                  </button>
+                  <button
+                    class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Đặt sân
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Field Card 6 -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=6&orientation=landscape"
+                alt="Sân bóng"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div class="p-4">
+                <div class="text-sm text-gray-600 mb-1">
+                  Giờ mở cửa 6:00 - 23:00
+                </div>
+                <div class="text-sm text-gray-600 mb-2">Loại sân: 11 x 11</div>
+                <h3 class="font-medium text-lg mb-1">Sân vận động Mỹ Đình</h3>
+                <div class="flex items-center mb-2">
+                  <div class="w-4 h-4 flex items-center justify-center mr-1">
+                    <i class="ri-map-pin-line text-gray-500"></i>
+                  </div>
+                  <span class="text-sm text-gray-600"
+                    >Quận Nam Từ Liêm, Hà Nội</span
+                  >
+                </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex">
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1">5 trên 5 (52)</span>
+                </div>
+                <div class="flex gap-2">
+                  <button
+                    onclick="window.location.href='xemchitiet.html'"
+                    class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Xem chi tiết
+                  </button>
+                  <button
+                    class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Đặt sân
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=6&orientation=landscape"
+                alt="Sân bóng"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div class="p-4">
+                <div class="text-sm text-gray-600 mb-1">
+                  Giờ mở cửa 6:00 - 23:00
+                </div>
+                <div class="text-sm text-gray-600 mb-2">Loại sân: 11 x 11</div>
+                <h3 class="font-medium text-lg mb-1">Sân vận động Mỹ Đình</h3>
+                <div class="flex items-center mb-2">
+                  <div class="w-4 h-4 flex items-center justify-center mr-1">
+                    <i class="ri-map-pin-line text-gray-500"></i>
+                  </div>
+                  <span class="text-sm text-gray-600"
+                    >Quận Nam Từ Liêm, Hà Nội</span
+                  >
+                </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex">
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1">5 trên 5 (52)</span>
+                </div>
+                <div class="flex gap-2">
+                  <button
+                    onclick="window.location.href='xemchitiet.html'"
+                    class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Xem chi tiết
+                  </button>
+                  <button
+                    class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Đặt sân
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=6&orientation=landscape"
+                alt="Sân bóng"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div class="p-4">
+                <div class="text-sm text-gray-600 mb-1">
+                  Giờ mở cửa 6:00 - 23:00
+                </div>
+                <div class="text-sm text-gray-600 mb-2">Loại sân: 11 x 11</div>
+                <h3 class="font-medium text-lg mb-1">Sân vận động Mỹ Đình</h3>
+                <div class="flex items-center mb-2">
+                  <div class="w-4 h-4 flex items-center justify-center mr-1">
+                    <i class="ri-map-pin-line text-gray-500"></i>
+                  </div>
+                  <span class="text-sm text-gray-600"
+                    >Quận Nam Từ Liêm, Hà Nội</span
+                  >
+                </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex">
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1">5 trên 5 (52)</span>
+                </div>
+                <div class="flex gap-2">
+                  <button
+                    onclick="window.location.href='xemchitiet.html'"
+                    class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Xem chi tiết
+                  </button>
+                  <button
+                    class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Đặt sân
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=football%20field%20with%20soccer%20balls%20on%20green%20grass%2C%20professional%20sports%20facility%2C%20clear%20blue%20sky%2C%20high%20quality%2C%20realistic%2C%20no%20people%2C%20outdoor%20soccer%20field&width=400&height=200&seq=6&orientation=landscape"
+                alt="Sân bóng"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div class="p-4">
+                <div class="text-sm text-gray-600 mb-1">
+                  Giờ mở cửa 6:00 - 23:00
+                </div>
+                <div class="text-sm text-gray-600 mb-2">Loại sân: 11 x 11</div>
+                <h3 class="font-medium text-lg mb-1">Sân vận động Mỹ Đình</h3>
+                <div class="flex items-center mb-2">
+                  <div class="w-4 h-4 flex items-center justify-center mr-1">
+                    <i class="ri-map-pin-line text-gray-500"></i>
+                  </div>
+                  <span class="text-sm text-gray-600"
+                    >Quận Nam Từ Liêm, Hà Nội</span
+                  >
+                </div>
+                <div class="flex items-center mb-4">
+                  <div class="flex">
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                    <i class="ri-star-fill text-yellow-400"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 ml-1">5 trên 5 (52)</span>
+                </div>
+                <div class="flex gap-2">
+                  <button
+                    onclick="window.location.href='xemchitiet.html'"
+                    class="w-1/2 border border-primary text-primary rounded-lg px-3 py-2 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Xem chi tiết
+                  </button>
+                  <button
+                    class="open-booking-btn w-1/2 bg-primary text-white rounded-lg px-3 py-2 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 !rounded-button whitespace-nowrap"
+                  >
+                    Đặt sân
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="flex justify-center mt-8">
+            <nav class="flex items-center space-x-1">
+              <a
+                href="#"
+                class="px-3 py-2 rounded-lg text-primary font-medium bg-primary/10"
+                >1</a
+              >
+              <a
+                href="#"
+                class="px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-100"
+                >2</a
+              >
+              <span class="px-3 py-2">...</span>
+              <a
+                href="#"
+                class="px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-100"
+                >10</a
+              >
+              <a
+                href="#"
+                class="px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-100"
+              >
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-arrow-right-s-line"></i>
+                </div>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-column">
-            <h3>Thông tin</h3>
-            <p>Đội sản 247 cung cấp các tiện ích thông minh giúp cho bạn tin sản bất và đất sản một cách hiệu quả nhất.</p>
-            <ul>
-            <li><a href="#">Chính sách bảo mật</a></li>
-            <li><a href="#">Chính sách xử lý</a></li>
-            </ul>
+      <div class="footer-column">
+        <h3>Thông tin</h3>
+        <p>
+          Đội sản 247 cung cấp các tiện ích thông minh giúp cho bạn tin sản bất
+          và đất sản một cách hiệu quả nhất.
+        </p>
+        <ul>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Chính sách xử lý</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Giới thiệu</h3>
+        <ul>
+          <li>📧 Mail: info@yourmail.com</li>
+          <li>📍 Số 175, Tây Sơn, Hà Nội</li>
+          <li>☎ Điện thoại: 0123 456 789</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Liên hệ</h3>
+        <div class="contact-box">
+          <p>Chăm sóc khách hàng:</p>
+          <div class="contact-row">
+            <span>01282001212</span>
+            <button>Gọi ngay</button>
+          </div>
         </div>
-        <div class="footer-column">
-            <h3>Giới thiệu</h3>
-            <ul>
-            <li>📧 Mail: info@yourmail.com</li>
-            <li>📍 Số 175, Tây Sơn, Hà Nội</li>
-            <li>☎ Điện thoại: 0123 456 789</li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>Liên hệ</h3>
-            <div class="contact-box">
-            <p>Chăm sóc khách hàng:</p>
-            <div class="contact-row">
-                <span>01282001212</span>
-                <button>Gọi ngay</button>
-            </div>
-            </div>
-        </div>
+      </div>
     </footer>
-
-</body>
+  </body>
 </html>

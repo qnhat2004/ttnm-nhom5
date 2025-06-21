@@ -9,42 +9,54 @@
     <script src="../js/home.js" defer></script>
   </head>
   <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="header__left">
-        <img src="../public/logo.png" alt="BFP Logo" class="header__logo">
+    <header class="custom-header">
+      <!-- Logo -->
+      <div class="logo-container">
+        <img src="../public/logo.png" alt="BFP Logo" width="100" height="62" />
       </div>
-      <nav class="header__nav">
-        <a href="home.html" class="header__nav-link">Trang chủ</a>
-        <a href="giaodiendatsan.html" class="header__nav-link">Đặt sân</a>
-        <a href="#" class="header__nav-link">Thanh toán</a>
-        <a href="#" class="header__nav-link">Quản lý khách hàng</a>
-        <a href="quan_ly_san_bong.html" class="header__nav-link">Quản lý sân</a>
-        <a href="#" class="header__nav-link">Quản lý tài khoản</a>
-        <span class="header__user">Vũ Quang Nhật 
-          <span class="header__user-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              width="24px"
-              height="24px"
-            >
-              <path
-                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-              />
-            </svg>
-          </span>
-        </span>
+
+      <!-- Navigation -->
+      <nav class="nav-links">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="giaodiendatsan.html" class="nav-link">Đặt sân</a>
+        <a href="#" class="nav-link">Thanh toán</a>
+        <a href="customer.html" class="nav-link">Quản lý khách hàng</a>
+        <a href="quan_ly_san_bong.html" class="nav-link">Quản lý sân</a>
+        <a href="#" class="nav-link">Quản lý tài khoản</a>
       </nav>
+
+      <!-- User Info -->
+      <div class="user-info">
+        <span class="user-name">Vũ Quang Nhật</span>
+        <svg
+          class="user-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z"
+          />
+        </svg>
+      </div>
     </header>
 
     <!-- Banner -->
     <section class="banner">
-      <img src="../public/stadium.png" alt="Banner" class="banner__bg">
+      <img src="../public/stadium.png" alt="Banner" class="banner__bg" />
       <div class="banner__content">
-        <h1><span class="banner__highlight">BFP -</span> Ứng dụng đặt sân tập thể thao hàng đầu tại Việt Nam.</h1>
-        <p>Mang đến trải nghiệm đặt sân trực tuyến thuận tiện và linh hoạt cho người chơi.</p>
+        <h1>
+          <span class="banner__highlight">BFP -</span> Ứng dụng đặt sân tập thể
+          thao hàng đầu tại Việt Nam.
+        </h1>
+        <p>
+          Mang đến trải nghiệm đặt sân trực tuyến thuận tiện và linh hoạt cho
+          người chơi.
+        </p>
       </div>
     </section>
 
@@ -52,10 +64,20 @@
     <section class="search">
       <h2>Đặt sân thể thao ngay</h2>
       <form class="search__form">
-        <input type="text" placeholder="Tìm kiếm sân chơi thể thao, thi đấu khắp cả nước" class="search__input">
-        <select class="search__select"><option>Chọn môn thể thao</option></select>
-        <select class="search__select"><option>Chọn tỉnh/thành phố</option></select>
-        <select class="search__select"><option>Chọn quận/huyện</option></select>
+        <input
+          type="text"
+          placeholder="Tìm kiếm sân chơi thể thao, thi đấu khắp cả nước"
+          class="search__input"
+        />
+        <select class="search__select">
+          <option>Chọn môn thể thao</option>
+        </select>
+        <select class="search__select">
+          <option>Chọn tỉnh/thành phố</option>
+        </select>
+        <select class="search__select">
+          <option>Chọn quận/huyện</option>
+        </select>
         <button type="submit" class="search__btn">Tìm kiếm ngay</button>
       </form>
     </section>
@@ -68,7 +90,11 @@
         <button class="slider__arrow slider__arrow--left">&#8592;</button>
         <div class="slider__track">
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -87,7 +113,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -106,7 +136,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -125,7 +159,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -144,7 +182,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -163,7 +205,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -182,7 +228,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -203,18 +253,27 @@
         </div>
         <button class="slider__arrow slider__arrow--right">&#8594;</button>
       </div>
-      <div class="slider__dots"><span class="slider__dot slider__dot--active"></span><span class="slider__dot"></span></div>
+      <div class="slider__dots">
+        <span class="slider__dot slider__dot--active"></span
+        ><span class="slider__dot"></span>
+      </div>
     </section>
 
     <!-- Section: Đề xuất cho bạn -->
     <section class="section">
       <h3 class="section__title">Đề xuất cho bạn</h3>
-      <p class="section__subtitle">Sân tập được người chơi đánh giá cao và gần bạn nhất</p>
+      <p class="section__subtitle">
+        Sân tập được người chơi đánh giá cao và gần bạn nhất
+      </p>
       <div class="slider">
         <button class="slider__arrow slider__arrow--left">&#8592;</button>
         <div class="slider__track">
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -233,7 +292,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -252,7 +315,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -271,7 +338,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -290,7 +361,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -309,7 +384,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -328,7 +407,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -349,7 +432,10 @@
         </div>
         <button class="slider__arrow slider__arrow--right">&#8594;</button>
       </div>
-      <div class="slider__dots"><span class="slider__dot slider__dot--active"></span><span class="slider__dot"></span></div>
+      <div class="slider__dots">
+        <span class="slider__dot slider__dot--active"></span
+        ><span class="slider__dot"></span>
+      </div>
     </section>
 
     <!-- Section: Sân hàng đầu -->
@@ -360,7 +446,11 @@
         <button class="slider__arrow slider__arrow--left">&#8592;</button>
         <div class="slider__track">
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -379,7 +469,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -398,7 +492,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -417,7 +515,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -436,7 +538,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -455,7 +561,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -474,7 +584,11 @@
             </div>
           </div>
           <div class="card">
-            <img src="../public/football_field.png" alt="Sân bóng" class="card__img">
+            <img
+              src="../public/football_field.png"
+              alt="Sân bóng"
+              class="card__img"
+            />
             <div class="card__body">
               <div class="card__time">Mở cửa: 05:00 - 22:00</div>
               <div class="card__type">Loại sân: Sân bóng đá</div>
@@ -495,23 +609,29 @@
         </div>
         <button class="slider__arrow slider__arrow--right">&#8594;</button>
       </div>
-      <div class="slider__dots"><span class="slider__dot slider__dot--active"></span><span class="slider__dot"></span></div>
+      <div class="slider__dots">
+        <span class="slider__dot slider__dot--active"></span
+        ><span class="slider__dot"></span>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__brand">
-          <img src="../public/logo.png" alt="BFP Logo" class="footer__logo">
-          <p class="footer__desc">BFP - Đặt sân thể thao hàng đầu Việt Nam. Đặt sân nhanh chóng, tiện lợi, uy tín và chuyên nghiệp.</p>
+          <img src="../public/logo.png" alt="BFP Logo" class="footer__logo" />
+          <p class="footer__desc">
+            BFP - Đặt sân thể thao hàng đầu Việt Nam. Đặt sân nhanh chóng, tiện
+            lợi, uy tín và chuyên nghiệp.
+          </p>
         </div>
         <div class="footer__links">
           <h4>Liên kết nhanh</h4>
           <ul>
-            <li><a href="#">Trang chủ</a></li>
-            <li><a href="#">Đặt sân</a></li>
-            <li><a href="#">Quản lý khách hàng</a></li>
-            <li><a href="#">Quản lý sân</a></li>
+            <li><a href="home.html">Trang chủ</a></li>
+            <li><a href="giaodiendatsan.html">Đặt sân</a></li>
+            <li><a href="customer.html">Quản lý khách hàng</a></li>
+            <li><a href="quan_ly_san_bong.html">Quản lý sân</a></li>
             <li><a href="#">Quản lý tài khoản</a></li>
           </ul>
         </div>
@@ -522,10 +642,7 @@
           <p>Địa chỉ: Hà Nội, Việt Nam</p>
         </div>
       </div>
-      <div class="footer__copyright">
-        &copy; 2024 BFP. All rights reserved.
-      </div>
+      <div class="footer__copyright">&copy; 2024 BFP. All rights reserved.</div>
     </footer>
   </body>
 </html>
-
