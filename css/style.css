@@ -106,3 +106,61 @@ input[type="date"].no-calendar-icon {
     color: #FFD700;
 }
 
+.footer {
+  background-color: #4CAF50;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-column {
+  width: 30%;
+}
+
+.footer-column h3 {
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 8px 0;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.contact-box {
+  background-color: #eee;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.contact-row button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+
