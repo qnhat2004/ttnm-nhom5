@@ -1,0 +1,321 @@
+body {
+  background: #fff;
+  color: #222;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb {
+  font-size: 1rem;
+  color: #1976d2;
+  background: #fafbfc;
+  padding: 14px 0 10px 0;
+  margin-bottom: 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.breadcrumb a {
+  color: #1976d2;
+  text-decoration: none;
+}
+.breadcrumb span {
+  color: #222;
+}
+
+.field-add {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 12px 40px 12px;
+}
+.field-add__form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.field-add__group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.field-add__group label {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.field-add__input, .field-add__textarea {
+  font-size: 1.18rem;
+  padding: 12px 18px;
+  border: 1.5px solid #222;
+  border-radius: 16px;
+  outline: none;
+  background: #fff;
+  transition: border 0.2s;
+}
+.field-add__input:focus, .field-add__textarea:focus {
+  border: 1.5px solid #1976d2;
+}
+.field-add__textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+.field-add__group--price .field-add__price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.field-add__input--price {
+  width: 120px;
+  text-align: right;
+}
+.field-add__price-unit {
+  font-size: 1.1rem;
+  color: #444;
+}
+.field-add__price-sep {
+  font-size: 1.2rem;
+  color: #888;
+  margin: 0 4px;
+}
+.field-add__utilities {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.field-add__add-utility-btn {
+  background: #fff;
+  border: 1.5px solid #222;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.field-add__add-utility-btn:hover {
+  background: #f0f0f0;
+}
+.field-add__utility-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.field-add__utility-tag {
+  background: #e7e7ff;
+  color: #3f51b5;
+  padding: 8px 14px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.field-add__remove-tag-btn {
+  background: none;
+  border: none;
+  color: #3f51b5;
+  cursor: pointer;
+  font-size: 1.3rem;
+  padding: 0;
+  line-height: 1;
+}
+.field-add__image-preview {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+}
+.field-add__image-preview img {
+  width: 100%;
+  display: block;
+}
+.field-add__upload-btn {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 8px;
+  background: #e7e7ff;
+  color: #5c6bc0;
+  border-radius: 20px;
+  padding: 10px 22px;
+  font-size: 1.08rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s;
+  margin-top: 12px;
+}
+.field-add__upload-btn:hover {
+  background: #c5cae9;
+}
+.field-add__upload-icon {
+  font-size: 1.2rem;
+}
+.field-add__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}
+.field-add__btn {
+  font-size: 1.15rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  color: white;
+}
+.field-add__btn--cancel {
+  background: #f47272;
+}
+.field-add__btn--cancel:hover {
+  background: #e57373;
+}
+.field-add__btn--save {
+  background: #63c97f;
+}
+.field-add__btn--save:hover {
+  background: #55b871;
+}
+.field-add__btn-icon {
+  font-size: 1.2rem;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px;
+  width: 90%;
+  max-width: 480px;
+  position: relative;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 4px 8px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: #f5f5f5;
+}
+
+.modal-icon {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.modal-desc {
+  font-size: 1rem;
+  text-align: center;
+  color: #666;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.modal-btn {
+  padding: 10px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-btn-outline {
+  background: none;
+  border: 1.5px solid #222;
+  color: #222;
+}
+
+.modal-btn-outline:hover {
+  background: #f5f5f5;
+}
+
+.modal-btn-black {
+  background: #222;
+  border: 1.5px solid #222;
+  color: #fff;
+}
+
+.modal-btn-black:hover {
+  background: #000;
+  border-color: #000;
+}
+
+@media (max-width: 600px) {
+  .field-add {
+    padding: 12px 2px 24px 2px;
+  }
+  .field-add__input, .field-add__textarea {
+    font-size: 1rem;
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+  .field-add__btn {
+    padding: 8px 12px;
+    font-size: 0.98rem;
+  }
+} 
